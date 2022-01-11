@@ -74,12 +74,16 @@
         <td>
               <label for="OS">Add <abbr title="Operating System">OS</abbr>:</label>
               <br>
-              <input type="text" id="OS" placeholder="IOS" required>
+              <select name="os" id="os" required>
+                <option value="ios">IOS</option>
+                <option value="windows">Windows</option>
+                <option value="android">Android</option>
+              </select>
         </td>
         <td>
-              <label for="SS">Add screen size:</label>
+              <label for="SS">Add screen size (in inches):</label>
               <br>
-              <input type="text" id="SS" placeholder="6,1 inches" required>
+              <input type="number" id="SS" placeholder="6,1" min="3" max="100" required step="0.1">
         </td>
         <td> <!--- HTML CHECKER: WARNING IGNORED -->
               <input type="submit" value="Submit">
