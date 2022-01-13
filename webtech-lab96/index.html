@@ -8,24 +8,41 @@
     <link rel="icon" href="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn2.iconfinder.com%2Fdata%2Ficons%2Fbusiness-marketing-advertising%2F64%2FMarketing_mobile_shop-512.png&f=1&nofb=1">
   </head>
   <style media="screen">
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0px;
+      font-family: arial;
+    }
     .header {
       background-color: #f1f1f1;
-      padding: 20px;
+      padding: 40px 20px;
       text-align: center;
+    }
+    h1 {
+      font: arial bold 2.7rem oblique;
+    }
+    .header h2 {
+      color: #5c5c5c;
+      font: bold 1.2rem serif;
     }
     .top5 {
       text-align: center;
     }
     .newest {
+      display: inline-block;
       text-align: center;
+      border width: 10px;
+      border style: outset;
+      border-color: orange;
     }
     .top_month {
       text-align: center;
     }
-
     ul {
       display: inline-block;
-	    text-align: left; 
+	    text-align: left;
     }
     .bought_with {
       text-align: center;
@@ -35,13 +52,13 @@
     }
     .column {
       float: left;
-      padding:30px;
+      padding: 30px;
     }
     column.purposes {
-      width: 50%;
+      width: 30%;
     }
     column.brands {
-      width: 50%;
+      width: 70%;
     }
     .bottom:after {
       content: "";
@@ -148,6 +165,7 @@
       </section>
 
       <section class="newest">
+        <br>
         <br>
         <table>
          <caption><em>Newest Arrivals!</em></caption>
