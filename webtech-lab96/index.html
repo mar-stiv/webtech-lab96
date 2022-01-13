@@ -19,6 +19,7 @@
       background-repeat: repeat-y;
       background-size: 150px;
     }
+    /*design of table*/
     table {
       margin-left: auto;
       margin-right: auto;
@@ -27,9 +28,8 @@
       border: 1px solid #dedede;
       border-collapse: collapse;
     }
-    section{
-      page-break-before: auto;
-    }
+
+    /*header*/
     .header {
       background-color: #f1f1f1;
       padding: 40px 20px;
@@ -43,6 +43,8 @@
       color: #5c5c5c;
       font: bold 1.2rem serif;
     }
+
+    /*top5 available phones*/
     .top5 {
       text-align: center;
       page-break-after: always;
@@ -70,6 +72,8 @@
     #os {
       color: #737373;
     }
+
+    /*newest arrivals*/
     .newest {
       margin-left: 130px;
       text-align: center;
@@ -94,6 +98,8 @@
       border-bottom: 0.5px solid #f1f1f1;;
       border-collapse: collapse;
     }
+
+    /*top phone of the month*/
     .top_month {
       text-align: center;
     }
@@ -109,17 +115,33 @@
     ol {
       list-style-type: lower-roman;
     }
-    a {
-      text-decoration: none;
-    }
+
+    /*usually bought with*/
     .bought_with {
       text-align: center;
       line-height: 1.3;
+    }
+    a {
+      text-decoration: none;
+    }
+    a:link {
+      color: black;
+    }
+    a:hover {
+      color: rgb(232, 124, 0);
+    }
+    a:active {
+      color: rgb(107, 0, 5);
+    }
+    a:visited {
+      color: rgb(120, 120, 120);
     }
     dt {
       font-size: 1.25rem;
       line-height: 1.8;
     }
+
+    /*footer*/
     .footer {
       page-break-before: always;
       block-size: 300px;
@@ -157,25 +179,16 @@
         width: 100%;
       }
     }
-    @media print { /*When printing, the html page will appear as such:*/
-      orphans: 4;
-      widows: 2;
-    }
-    a:link {
-      color: black;
-    }
-    a:hover {
-      color: rgb(232, 124, 0);
-    }
-    a:active {
-      color: rgb(107, 0, 5);
-    }
-    a:visited {
-      color: rgb(120, 120, 120);
-    }
     figcaption{
       text-align: right;
     }
+
+    /*When printing, the html page will appear as such:*/
+    @media print {
+      orphans: 4;
+      widows: 2;
+    }
+
   </style>
 
 
