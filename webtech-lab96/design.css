@@ -1,1 +1,41 @@
-/* This CSS file was worked upon in Lab 2 */
+/* Style the header */
+.header {
+  background-color: #f1f1f1;
+  padding: 20px;
+  text-align: center;
+}
+.top5 {
+  text-align: center;
+}
+.newest {
+  text-align: center;
+}
+.top_month {
+  text-align: center;
+}
+.bought_with {
+  text-align: center;
+}
+.bottom {
+  background-color: #b0b0b0;
+}
+.column {
+  float: left;
+  padding: 10px;
+}
+column.purposes {
+  width: 50%;
+}
+column.brands {
+  width: 50%;
+}
+.bottom:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+@media screen and (max-width: 600px) {
+  .column.purposes, .column.brands {
+    width: 100%;
+  }
+}

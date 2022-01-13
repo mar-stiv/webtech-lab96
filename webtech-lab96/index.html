@@ -1,11 +1,52 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <link rel="stylesheet" href="webtech-lab96/design.css">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--- makes website responsive -->
     <title>Mobile Phone Web Shop</title>
   </head>
+  <style media="screen">
+    .header {
+      background-color: #f1f1f1;
+      padding: 20px;
+      text-align: center;
+    }
+    .top5 {
+      text-align: center;
+    }
+    .newest {
+      text-align: center;
+    }
+    .top_month {
+      text-align: center;
+    }
+    .bought_with {
+      text-align: center;
+    }
+    .bottom {
+      background-color: #b0b0b0;
+    }
+    .column {
+      float: left;
+      padding: 30px;
+    }
+    column.purposes {
+      width: 50%;
+    }
+    column.brands {
+      width: 50%;
+    }
+    .bottom:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+    @media screen and (max-width: 600px) {
+      .column.purposes, .column.brands {
+        width: 100%;
+      }
+    }
+  </style>
   <body>
     <div class="header">
       <h1>MobTech</h1>
@@ -63,30 +104,6 @@
             <td>Apple</td>
             <td>IOS</td>
             <td>4.7"</td>
-          </tr>
-          <tr>
-            <td>
-              <input type="url" id="image" placeholder="Image link here" required>
-            </td>
-            <td>
-              <input type="text" id="model" placeholder="Model" required>
-            </td>
-            <td>
-              <input type="text" id="brand" placeholder="Brand" required>
-            </td>
-            <td>
-              <select name="os" id="os" placeholder="OS" required>
-                <option value="ios">IOS</option>
-                <option value="windows">Windows</option>
-                <option value="android">Android</option>
-              </select>
-            </td>
-            <td>
-              <input type="number" id="screensize" placeholder="Size" min="3" max="100" required step="0.1">
-            </td>
-            <td> <!--- HTML CHECKER: WARNING IGNORED FOR FORM FUNCTIONALITY-->
-              <input type="submit" value="Submit">
-            </td>
           </tr>
          </table>
         </form>
@@ -150,24 +167,6 @@
        </ul>
      </section>
 
-     <section class="purposes">
-       <h2>Our Purposes</h2>
-        <ol type="1">
-          <li>To be a customer-centric company</li>
-          <li>To provide the best mobile devices in the market</li>
-          <li>To give the people the power of doing anything from their fingertips</li>
-          <li>To organise valuable information on mobile devices to be understood by all <i>even if you're not a tech person</i></li>
-        </ol>
-    </section>
-
-    <section class="brands">
-      <h2>Brands we Offer!</h2>
-      <figure>
-        <img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.budgetmobilephones.com.au%2Fwp-content%2Fuploads%2F2010%2F10%2Fapple-nokia-lg-motorola-samsung-sony-logos.jpg&f=1&nofb=1" alt="Brands">
-        <figcaption>Starting from the left: Apple, Nokia, Motorola, LG, Samsung, Sony Ericsson</figcation>
-      </figure>
-    </section>
-
     <section class="bought_with">
       <h2>Typically Bought with...</h2>
       <dl>
@@ -180,6 +179,25 @@
         <dd>MagSafe Charger</dd>
         <dd>Apple Silicon Case with MagSafe<dd>
       </dl>
+    </section>
+
+    <section class="bottom">
+      <div class="column purposes">
+        <h2>Our Purposes</h2>
+        <ol type="1">
+          <li>To be a customer-centric company</li>
+          <li>To provide the best mobile devices in the market</li>
+          <li>To give the people the power of doing anything from their fingertips</li>
+          <li>To organise valuable information on mobile devices to be understood by all <i>even if you're not a tech person</i></li>
+        </ol>
+      </div>
+      <div class="column.brands">
+        <h2>Brands we Offer!</h2>
+        <figure>
+          <img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.budgetmobilephones.com.au%2Fwp-content%2Fuploads%2F2010%2F10%2Fapple-nokia-lg-motorola-samsung-sony-logos.jpg&f=1&nofb=1" alt="Brands" width="10%">
+          <figcaption>Starting from the left: Apple, Nokia, Motorola, LG, Samsung, Sony Ericsson</figcation>
+        </figure>
+      </div>
     </section>
   </body>
 </html>
