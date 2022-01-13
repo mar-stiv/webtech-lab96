@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <link rel="stylesheet" href="webtech-lab96/design.css">
+    <link rel="stylesheet" href="design.css">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--- makes website responsive -->
     <title>Mobile Phone Web Shop</title>
+    <link rel="icon" href="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn2.iconfinder.com%2Fdata%2Ficons%2Fbusiness-marketing-advertising%2F64%2FMarketing_mobile_shop-512.png&f=1&nofb=1">
   </head>
   <body>
     <div class="header">
@@ -65,24 +66,31 @@
             <td>4.7"</td>
           </tr>
           <tr>
+            <td><pre>For Employees ONLY!        <em>Add new phone to server:</em></pre></td>
+          </tr>
+          <tr>
             <td>
-              <input type="url" id="image" placeholder="Image link here" required>
+              <input type="text" name="brand" id="brand" placeholder="Ex: Apple" required>
             </td>
             <td>
-              <input type="text" id="model" placeholder="Model" required>
+              <input type="text" name="model" id="model" placeholder="Ex:IPhone 11" required>
             </td>
             <td>
               <input type="text" id="brand" placeholder="Brand" required>
             </td>
             <td>
               <select name="os" id="os" placeholder="OS" required>
+                <option value="" hidden>Pick an <abbr title="Operating System">OS</abbr></option>
                 <option value="ios">IOS</option>
                 <option value="windows">Windows</option>
                 <option value="android">Android</option>
               </select>
             </td>
             <td>
-              <input type="number" id="screensize" placeholder="Size" min="3" max="100" required step="0.1">
+              <input type="number" name="screensize" id="screensize" placeholder="6" max="100" min="3" step="1" required>
+            </td>
+            <td>
+              <input type="url" name="image" id="image" placeholder="Paste Link Here" required>
             </td>
             <td> <!--- HTML CHECKER: WARNING IGNORED FOR FORM FUNCTIONALITY-->
               <input type="submit" value="Submit">
