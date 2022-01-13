@@ -105,35 +105,45 @@
       list-style: square inside url("https://media.discordapp.net/attachments/887340040496238652/931258037291876443/square-list-image.png");
       vertical-align: baseline;
     }
+    ol {
+      list-style-type: lower-roman;
+    }
     a {
       text-decoration: none;
     }
     .bought_with {
       text-align: center;
+      line-height: 1.3;
     }
     dt {
       font-size: 1.25rem;
       line-height: 1.8;
-    }
-    .aligncentre{
-      text-align: center;
     }
     .footer {
       block-size: 300px;
       background-color: #dedede;
     }
     .footer li {
-      //
+      font-style: normal;
+      text-indent: 5%;
+      line-height: 1.5;
+      font-weight: normal;
     }
     .column {
       float: left;
       padding: 30px;
     }
-    column.purposes {
-      width: 30%;
+    .column.purposes {
+      text-indent: 30%;
+      width: 40%;
     }
-    column.brands {
-      width: 70%;
+    .column.brands {
+      text-indent: 30%;
+      width: 60%;
+    }
+    .brands figcaption {
+      font-weight: normal;
+      text-align: center;
     }
     .bottom:after {
       content: "";
@@ -317,6 +327,8 @@
          <li>longer battery life than before</li>
          <li>Adaptive refresh up to 120Hz</li>
        </ul>
+       <br>
+       <br>
      </section>
 
     <section class="bought_with">
@@ -331,10 +343,13 @@
         <dd><a href="https://www.amazon.de/-/en/MHXH3ZM-A-Apple-MagSafe-Charger/dp/B08L5R6ZHP/ref=sr_1_3?crid=37FBIBSFWXI1K&keywords=magsafe-ladeger%C3%A4t&qid=1642087089&sprefix=magsafe+charger%2Caps%2C317&sr=8-3">MagSafe Charger</a></dd>
         <dd><a href="https://www.amazon.de/-/en/MM2A3ZM-A/dp/B09G8WV2F2/ref=sr_1_3?crid=2R6CQVR3D8GMQ&keywords=apple+silikon+h%C3%BClle+mit+magsafe&qid=1642087108&sprefix=apple+silicone+case+with+magsafe%2Caps%2C100&sr=8-3">Apple Silicon Case with MagSafe</a><dd>
       </dl>
+      <br>
+      <br>
     </section>
 
     <section class="footer">
       <div class="column purposes">
+        <br>
         <h2>Our Purpose</h2>
         <ol type="1">
           <li>To be a customer-centric company</li>
@@ -344,7 +359,7 @@
         </ol>
       </div>
 
-      <div class="column.brands">
+      <div class="column brands">
         <br>
         <h2>Brands we Offer!</h2>
         <figure>
