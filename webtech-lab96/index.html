@@ -8,19 +8,23 @@
     <link rel="icon" href="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn2.iconfinder.com%2Fdata%2Ficons%2Fbusiness-marketing-advertising%2F64%2FMarketing_mobile_shop-512.png&f=1&nofb=1">
   </head>
   <style media="screen">
+
     * {
       box-sizing: border-box;
     }
     body {
-      margin: 0px;
+      margin: 30px;
       font-family: arial;
+      background-image: url("https://www.schemecolor.com/wallpaper?i=39490&desktop" );
+      background-repeat: repeat-y;
+      background-size: 150px;
     }
     table {
       margin-left: auto;
       margin-right: auto;
     }
     th, td.have-border{
-      border: 1px solid black;
+      border: 1px solid #dedede;
       border-collapse: collapse;
     }
     .header {
@@ -30,7 +34,7 @@
     }
     h1 {
       font: arial bold 2.7rem oblique;
-      text-decoration: underline overline wavy blue;
+      text-decoration: underline overline wavy #cc7700;
     }
     .header h2 {
       color: #5c5c5c;
@@ -47,13 +51,36 @@
       color: black;
       background-color: #e0e0e0;
     }
+    input[type=submit] {
+      background-color: #ffa530;
+    }
+    input[type=submit]:active {
+      background-color: #db701f;
+    }
     #os {
       color: #737373;
     }
     .newest {
-      display: inline-block;
+      block-width: 500px;
       text-align: center;
-      border: 10px outset orange /*shorthand property*/
+      background-color: #f1f1f1;
+      border: 10px double orange; /*shorthand property*/
+    }
+    .newest caption {
+      caption-side: top;
+      font-size: 1.7rem;
+      line-height: 2;
+    }
+    .newest table {
+      border-color: white;
+      border-spacing: 27px 0px;
+    }
+    .newest table td {
+      border-left: 1px solid #d6d6d6;
+      border-right: 1px solid #d6d6d6;
+      border-top: 0.5px solid #f1f1f1;;
+      border-bottom: 0.5px solid #f1f1f1;;
+      border-collapse: collapse;
     }
     .top_month {
       text-align: center;
@@ -78,6 +105,7 @@
       text-align: center;
     }
     .footer {
+      block-size: 300px;
       background-color: #dedede;
     }
     .column {
@@ -119,6 +147,9 @@
     <div class="header">
       <h1>MobTech</h1>
       <h2>Welcome to our Web Shop!</h2>
+    </div>
+
+    <div class="orangeBackground">
     </div>
 
     <section class="top5">
@@ -204,11 +235,14 @@
           </tr>
          </table>
         </form>
+        <br>
+        <br>
       </section>
 
       <section class="newest">
+        <br>
         <table>
-         <caption><em>Newest Arrivals!</em></caption>
+         <caption><em><strong>Newest Arrivals!<strong></em></caption>
          <tr>
            <th>Xiaomi 11i 5G</th>
            <th>Oppo A36</th>
@@ -248,6 +282,8 @@
            <td>Coming in January!</td>
          </tr>
        </table>
+       <br>
+       <br>
      </section>
 
      <section class="top_month">
@@ -290,6 +326,7 @@
       </div>
 
       <div class="column.brands">
+        <br>
         <h2>Brands we Offer!</h2>
         <figure>
           <p class="aligncentre"><img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.budgetmobilephones.com.au%2Fwp-content%2Fuploads%2F2010%2F10%2Fapple-nokia-lg-motorola-samsung-sony-logos.jpg&f=1&nofb=1" alt="Brands" width="10%"></p>
