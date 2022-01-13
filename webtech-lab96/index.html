@@ -43,6 +43,12 @@
     .top5 {
       text-align: center;
     }
+    .top5 p {
+      text-transform: uppercase;
+      font-family: copperplate;
+      font-size: 20px;
+      font-weight: 500;
+    }
     input[type=text], input[type=url]{
       width: 100px;
     }
@@ -69,6 +75,7 @@
     }
     .newest caption {
       caption-side: top;
+      font-style: italic;
       font-size: 1.7rem;
       line-height: 2;
     }
@@ -89,8 +96,9 @@
     ul {
       display: inline-block;
 	    text-align: left;
-      list-style-type: square;
-      text-transform: lowercase;
+      list-style-type: circle;
+      font-variant: small-caps;
+      font-size: 20px;
     }
     a {
       text-decoration: none;
@@ -108,6 +116,9 @@
     .footer {
       block-size: 300px;
       background-color: #dedede;
+    }
+    .footer li {
+      //
     }
     .column {
       float: left;
@@ -246,7 +257,7 @@
       <section class="newest">
         <br>
         <table>
-         <caption><em><strong>Newest Arrivals!<strong></em></caption>
+         <caption><strong>Newest Arrivals!<strong></caption>
          <tr>
            <th>Xiaomi 11i 5G</th>
            <th>Oppo A36</th>
