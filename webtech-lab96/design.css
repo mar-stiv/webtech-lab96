@@ -27,7 +27,7 @@ th, td.have-border{
   text-align: center;
 }
 h1 {
-  font: arial bold 2.7rem oblique;
+  font: oblique bold 2.7rem arial;
   text-decoration: underline overline wavy #cc7700;
 }
 .header h2 {
@@ -150,7 +150,6 @@ ul.nav-bar li a {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-  }
 }
 
 /*For Phone*/
@@ -233,8 +232,9 @@ dt {
     width: 100%;
   }
 }
+
+/*design for tablets and phones (responsive design)*/
 @media screen and (max-device-width:1024px) and (orientation:portrait){
-    /*tablet has portrait orientation.*/
     body {
       background-image: url("https://www.schemecolor.com/wallpaper?i=39490&desktop" );
       background-repeat: repeat-x;
@@ -247,13 +247,13 @@ dt {
       width: auto;
     }
     h1 {
-      font: arial bold 3rem oblique;
+      font: oblique bold 3rem arial;
     }
     .top5 table {
       width: auto;
       background-color: #f1f1f1;
     }
-    .top5 td, th {
+    .top5 td, .top5 th {
        display: block;
     }
     .top5 th {
@@ -275,30 +275,22 @@ dt {
       height: 3em;
     }
     .newest{
-      margin-left: auto;
-      text-align: center;
       width: auto;
       background-color: #f1f1f1;
       border: 5px double orange;
       box-shadow: none;
-    }
-    .column {
-      float: none;
-    }
-    .column.purposes {
-      display: inline-block;
-      background-color: #dedede;
-    }
-    .column.brands {
-      display: inline-block;
-      background-color: #dedede;
-      text-align: left;
     }
     .column.brands img {
       width: auto;
       height: auto;
       text-align: left;
     }
+    @media screen and (max-device-width:600px) and (orientation:portrait) {
+        .column {
+          float: none;
+          display: inline-block;
+          background-color: #dedede;
+        }
 }
 /*Caption for Figure*/
 figcaption{
