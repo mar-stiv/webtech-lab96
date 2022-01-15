@@ -205,8 +205,6 @@
     /*footer*/
     .footer {
       page-break-before: always;
-      block-size: 300px;
-      background-color: #dedede;
     }
     .footer li {
       font-style: normal;
@@ -215,6 +213,8 @@
       font-weight: normal;
     }
     .column {
+      background-color: #dedede;
+      width: 95vw;
       float: left;
       padding: 30px;
     }
@@ -241,62 +241,68 @@
       }
     }
     @media screen and (max-device-width:1024px) and (orientation:portrait){
-        /*phones and tablets*/
-        body {
-          background-image: url("https://www.schemecolor.com/wallpaper?i=39490&desktop" );
-          background-repeat: repeat-x;
-          background-color: #ffb442;
-          margin-top: 30px;
-          margin-left: 10px;
-          margin-right: auto;
+      /*phones and tablets*/
+      body {
+        background-image: url("https://www.schemecolor.com/wallpaper?i=39490&desktop" );
+        background-repeat: repeat-x;
+        background-color: #ffb442;
+        margin-top: 30px;
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+      .header {
+        width: auto;
         }
-        .header {
-          width: auto;
-        }
-        h1 {
-          font: arial bold 3rem oblique;
-        }
-        .top5 table {
-          width: auto;
-          background-color: #f1f1f1;
-        }
-        .top5 td, th {
-           display: block;
-        }
-        .top5 th {
-          font-size: 0px;
-        }
-        #name {
-          font-size: 1.1rem;
-          font-weight: bold;
-        }
-        input[type=text], input[type=url], input[type=number]{
-          width: 9em;
-          height: 3em;
-        }
-        input[type=text]:focus, input[type=url]:focus{
-          width: 18em;
-          height: 7em;
-        }
-        input[type=submit] {
-          width: 9em;
-          height: 3em;
-        }
-        .newest{
-          margin-left: auto;
-          text-align: center;
-          width: auto;
-          background-color: #f1f1f1;
-          border: 5px double orange;
-          box-shadow: none;
-          overflow: auto;
-        }
-        .top_month h2 {
-          background-color: #ff8c12;
-        }
-        .bought_with h2 {
-          background-color: #ff8c12;
-        }
+      h1 {
+        font: arial bold 3rem oblique;
+      }
+      .top5 table {
+        width: auto;
+        background-color: #f1f1f1;
+      }
+      .top5 td, th {
+         display: block;
+      }
+      .top5 th {
+        font-size: 0px;
+      }
+      #name {
+        font-size: 1.1rem;
+        font-weight: bold;
+      }
+      input[type=text], input[type=url], input[type=number]{
+        width: 9em;
+        height: 3em;
+      }
+      input[type=text]:focus, input[type=url]:focus{
+        width: 18em;
+        height: 7em;
+      }
+      input[type=submit] {
+        width: 9em;
+        height: 3em;
+      }
+      .newest{
+        margin-left: auto;
+        text-align: center;
+        width: auto;
+        background-color: #f1f1f1;
+        border: 5px double orange;
+        box-shadow: none;
+        overflow: auto;
+      }
+      .top_month h2 {
+        background-color: #ff8c12;
+      }
+      .bought_with h2 {
+        background-color: #ff8c12;
+      }
+      .column.brands img {
+        width: auto;
+        height: auto;
+      }
+
+      @media screen and (max-device-width:600px) and (orientation:portrait) {
         .column {
           float: none;
         }
@@ -308,10 +314,7 @@
           display: inline-block;
           background-color: #dedede;
         }
-        .column.brands img {
-          width: auto;
-          height: auto;
-        }
+      }
     }
 
     figcaption{
@@ -534,6 +537,7 @@
           <p class="aligncentre"><img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.budgetmobilephones.com.au%2Fwp-content%2Fuploads%2F2010%2F10%2Fapple-nokia-lg-motorola-samsung-sony-logos.jpg&f=1&nofb=1" alt="Brands" width="10%"></p>
           <figcaption>Starting from the left: Apple, Nokia, Motorola, LG, Samsung, Sony Ericsson</figcation>
         </figure>
+        <br>
       </div>
     </section>
   </body>
