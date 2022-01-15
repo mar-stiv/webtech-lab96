@@ -260,7 +260,7 @@
         width: auto;
         background-color: #f1f1f1;
       }
-      .top5 td, th {
+      .top5 td, .top5 th {
          display: block;
       }
       .top5 th {
@@ -283,13 +283,14 @@
         height: 3em;
       }
       .newest{
-        margin-left: auto;
-        text-align: center;
         width: auto;
         background-color: #f1f1f1;
         border: 5px double orange;
         box-shadow: none;
         overflow: auto;
+      }
+      .newest th {
+
       }
       .top_month h2 {
         background-color: #ff8c12;
@@ -305,12 +306,6 @@
       @media screen and (max-device-width:600px) and (orientation:portrait) {
         .column {
           float: none;
-        }
-        .column.purposes {
-          display: inline-block;
-          background-color: #dedede;
-        }
-        .column.brands {
           display: inline-block;
           background-color: #dedede;
         }
