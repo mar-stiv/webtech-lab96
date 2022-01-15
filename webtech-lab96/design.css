@@ -98,7 +98,7 @@ input[type=submit]:active {
 .top_month {
   text-align: center;
 }
-  ul.top-list{
+.top-list ul {
     display: inline-block;
     text-align: left;
     list-style-position: inside;
@@ -107,7 +107,7 @@ input[type=submit]:active {
     list-style: square inside url("https://media.discordapp.net/attachments/887340040496238652/931258037291876443/square-list-image.png");
     vertical-align: baseline;
   }
-  ul. {
+/*ul. {
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -116,7 +116,7 @@ input[type=submit]:active {
   position: fixed;
   height: 100%;
   overflow: auto;
-}
+}*/
 
 /* Responsive Navigation Bar */
 ul.nav-bar {
@@ -153,7 +153,7 @@ ul.nav-bar li a {
 }
 
 /*For Phone*/
-@media screen and (max-width: 400px) {
+@media screen and (max-device-width: 400px) {
   ul.nav-bar li a {
     text-align: center;
     float: none;
@@ -271,6 +271,7 @@ pre{
     #name {
       font-weight: bold;
     }
+    /*bigger buttons*/
     input[type=text], input[type=url], input[type=number]{
       width: 9em;
       height: 3em;
@@ -294,10 +295,11 @@ pre{
       height: auto;
     }
     @media screen and (max-device-width:600px) and (orientation:portrait) {
-        /*footer alignment in phones*/
-        .column {
-          float: none;
-          display: inline-block;
-          background-color: #dedede;
-        }
+      /*footer alignment in phones*/
+      .column {
+        float: none;
+        display: inline-block;
+        background-color: #dedede;
+      }
+    }
 }
