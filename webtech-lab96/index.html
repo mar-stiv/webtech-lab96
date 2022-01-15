@@ -2,13 +2,12 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="design.css">
+    <link rel="stylesheet" href="design.css"> <!--- links html file to css file -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--- makes website responsive -->
     <title>Mobile Phone Web Shop</title>
     <link rel="icon" href="https://media.discordapp.net/attachments/887340040496238652/931255515923771392/logo.png">
   </head>
   <body>
-    <meta name=”viewport” content=”width=device-width, initial-scale=1″>
     <div class="header">
       <h1>
       <a href="index.html">
@@ -19,6 +18,7 @@
       <h2>Welcome to our Web Shop!</h2>
     </div>
 
+<!--- Navigation Bar -->
     <ul class="nav-bar">
       <li><a class="active" href="#home">Home</a></li>
       <li><a href="#top5">Top 5 Phones</a></li>
@@ -29,6 +29,7 @@
       <li><a href="#footer">Brands Offered</a></li>
     </ul>
 
+<!--- Top 5 Phones -->
     <section class="top5" id="top5">
       <br><p>Check out our top 5 mobile phones!</p>
       <form action="https://wt.ops.labs.vu.nl/api22/779519fb" method="post">
@@ -84,6 +85,7 @@
           <tr>
             <td><pre>For Employees ONLY!        <em>Add new phone to server:</em></pre></td>
           </tr>
+          <!--- Form to be filled in -->
           <tr>
             <td>
               <input type="url" name="image" id="image" placeholder="Paste Image Link Here" required>
@@ -105,8 +107,7 @@
             <td>
               <input type="number" name="screensize" id="screensize" placeholder="6" max="100" min="3" step="1" required>
             </td>
-
-            <td> <!--- HTML CHECKER: WARNING IGNORED FOR FORM FUNCTIONALITY-->
+            <td>
               <input type="submit" value="Submit">
             </td>
           </tr>
@@ -115,7 +116,7 @@
         <br>
         <br>
       </section>
-
+<!--- Newest Phones to the Market -->
       <section class="newest" id="newest">
         <br>
         <table>
@@ -166,6 +167,7 @@
      </section>
        <br>
 
+<!--- Top Phone of the Month -->
      <section class="top_month" id="top_month">
        <h2>Top Phone of the Month!</h2>
        <p><strong>Apple: Iphone 13 Pro Max</strong></p>
@@ -182,6 +184,7 @@
        <br>
      </section>
 
+<!--- Accessories typically bought with [phone] -->
     <section class="bought_with" id="bought_with">
       <h2>Typically Bought with...</h2>
       <dl>
@@ -202,6 +205,7 @@
     <section class="footer" id="footer">
       <div class="column purposes">
         <br>
+        <!--- Purposes of our Company -->
         <h2>Our Purpose</h2>
         <ol type="1">
           <li>To be a customer-centric company</li>
@@ -213,6 +217,7 @@
 
       <div class="column brands">
         <br>
+        <!--- Brands Offered by Our Company -->
         <h2>Brands we Offer!</h2>
         <figure>
           <p class="aligncentre"><img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.budgetmobilephones.com.au%2Fwp-content%2Fuploads%2F2010%2F10%2Fapple-nokia-lg-motorola-samsung-sony-logos.jpg&f=1&nofb=1" alt="Brands" width="10%"></p>
