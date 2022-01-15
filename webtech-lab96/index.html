@@ -105,16 +105,16 @@
     .top_month {
       text-align: center;
     }
-    ul{
-      display: inline-block;
-	    text-align: left;
-      list-style-position: inside;
-      font-variant: small-caps;
-      font-size: 20px;
-      list-style: square inside url("https://media.discordapp.net/attachments/887340040496238652/931258037291876443/square-list-image.png");
-      vertical-align: baseline;
-    }
-    ul.nav-bar {
+      ul.top-list{
+        display: inline-block;
+        text-align: left;
+        list-style-position: inside;
+        font-variant: small-caps;
+        font-size: 20px;
+        list-style: square inside url("https://media.discordapp.net/attachments/887340040496238652/931258037291876443/square-list-image.png");
+        vertical-align: baseline;
+      }
+      ul. {
       list-style-type: none;
       margin: 0;
       padding: 0;
@@ -124,16 +124,46 @@
       height: 100%;
       overflow: auto;
     }
-    li a {
-      display: block;
-      color: #000;
-      padding: 8px 16px;
-      text-decoration: none;
+
+    ul.nav-bar {
+      list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
     }
 
-    li a:hover:not(.active) {
-      background-color: #555;
-      color: white;
+    ul.nav-bar li {
+      float: left;
+    }
+
+    ul.nav-bar li a.active {
+      background-color: #04AA6D;
+    }
+
+    ul.nav-bar li a:hover:not(.active) {
+      background-color: #111;
+    }
+
+    @media screen and (max-width: 600px) {
+      ul.nav-bar li.right,
+      ul.nav-bar li {float: none;}
+    }
+
+    ul.nav-bar li a {
+      display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+      }
+    }
+
+    @media screen and (max-width: 400px) {
+      ul.nav-bar li a {
+        text-align: center;
+        float: none;
+      }
     }
     ol {
       list-style-type: lower-roman;
@@ -311,16 +341,13 @@
       <h2>Welcome to our Web Shop!</h2>
     </div>
 
-    <div class="nav-bar">
-      <nav>
-        <ul>
-          <li><a class="active" href="#home">Home</a></li>
-          <li><a href="#top5">Top 5 Phones</a></li>
-          <li><a href="#newest">Newest Phones</a></li>
-          <li><a href="#top_month">Phone of the Month</a></li>
-        </ul>
-      </nav>
-    </div>
+    <ul class="nav-bar">
+      <li><a class="active" href="#home">Home</a></li>
+      <li><a href="#top5">Top 5 Phones</a></li>
+      <li><a href="#newest">Newest Phones</a></li>
+      <li><a href="#top_month">Top of the Month</a></li>
+      <li><a href="#bought_with">Accessories</a></li>
+    </ul>
 
     <section class="top5" id="top5">
       <br><p>Check out our top 5 mobile phones!</p>
@@ -456,11 +483,11 @@
        <br>
      </section>
 
-     <section class="top_month">
+     <section class="top_month" id="top_month">
        <h2>Top Phone of the Month!</h2>
        <p><strong>Apple: Iphone 13 Pro Max</strong></p>
        <img src="https://i.gadgets360cdn.com/products/large/iphone-13-pro-max-400x800-1631648541.jpg?downsize=*:180" alt="Iphone 13 Pro Max" class="top">
-       <ul>
+       <ul class="top-list">
          <li>one of the best camera resolutions up to date</li>
          <li>new light sensors</li>
          <li>up to 15x digital zoom</li>
@@ -472,7 +499,7 @@
        <br>
      </section>
 
-    <section class="bought_with">
+    <section class="bought_with" id="bought_with">
       <h2>Typically Bought with...</h2>
       <dl>
         <dt><strong><u>Samsung Galaxy S21 Ultra</u></strong></dt>
@@ -489,7 +516,7 @@
       <br>
     </section>
 
-    <section class="footer">
+    <section class="footer" id="footer">
       <div class="column purposes">
         <br>
         <h2>Our Purpose</h2>
