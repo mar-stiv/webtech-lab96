@@ -118,7 +118,7 @@ input[type=submit]:active {
   overflow: auto;
 }
 
-/* Navigation Bar */
+/* Responsive Navigation Bar */
 ul.nav-bar {
   list-style-type: none;
   margin: 0;
@@ -153,6 +153,7 @@ ul.nav-bar li a {
   }
 }
 
+/*For Phone*/
 @media screen and (max-width: 400px) {
   ul.nav-bar li a {
     text-align: center;
@@ -281,9 +282,6 @@ dt {
       border: 5px double orange;
       box-shadow: none;
     }
-    /*.footer {
-      block-size: 80vw;
-    }*/
     .column {
       float: none;
     }
@@ -302,14 +300,11 @@ dt {
       text-align: left;
     }
 }
-@media screen and (max-device-width:1024px) and (orientation:landscape){
-    /*
-    put your tablet device CSS code here when tablet has landscape orientation.
-    */
-}
+/*Caption for Figure*/
 figcaption{
   text-align: right;
 }
+/*Changes font for all Pre*/
 pre{
   font-family: 'Athelas',sans-serif;
 }
