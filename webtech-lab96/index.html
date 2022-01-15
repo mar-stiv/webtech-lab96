@@ -190,6 +190,9 @@
           background-image: url("https://www.schemecolor.com/wallpaper?i=39490&desktop" );
           background-repeat: repeat-x;
           background-color: #ffb442;
+          margin-top: 30px;
+          margin-left: 4px;
+          margin-right: 4px;
         }
         .header {
           width: auto;
@@ -200,7 +203,6 @@
         .top5 table {
           width: auto;
           background-color: #f1f1f1;
-
         }
         .top5 td, th {
            display: block;
@@ -208,7 +210,22 @@
          .top5 th {
            font-size: 0px;
          }
-        .newest{
+         #name {
+           font-weight: bold;
+         }
+         input[type=text], input[type=url], input[type=number]{
+           width: 9em;
+           height: 3em;
+         }
+         input[type=text]:focus, input[type=url]:focus{
+           width: 18em;
+           height: 7em;
+         }
+         input[type=submit] {
+           width: 9em;
+           height: 3em;
+         }
+         .newest{
           margin-left: auto;
           text-align: center;
           width: auto;
@@ -222,14 +239,19 @@
         .bought_with {
 
         }
-        .footer {
+        /*.footer {
           block-size: 80vw;
-        }
+        }*/
         .column {
           float: none;
         }
+        .column.purposes {
+          display: inline-block;
+          background-color: #dedede;
+        }
         .column.brands {
-          text-indent: 30%;
+          display: inline-block;
+          background-color: #dedede;
           text-align: left;
         }
     }
@@ -275,21 +297,21 @@
             <td class="have-border">
               <a href="https://m.media-amazon.com/images/I/613vLmkDsJL._AC_SL1500_.jpg"><img src="https://m.media-amazon.com/images/I/613vLmkDsJL._AC_SL1500_.jpg" alt="Iphone 13 pro" width="154" height="192"></a>
             </td>
-            <td class="have-border">Iphone 13 pro</td>
+            <td class="have-border" id="name">Iphone 13 pro</td>
             <td class="have-border">Apple</td>
             <td class="have-border">IOS 15</td>
             <td class="have-border">6.1"</td>
           </tr>
           <tr>
             <td class="have-border"><a href="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages-na.ssl-images-amazon.com%2Fimages%2FI%2F81pj6lhsMZL._AC_SL1500_.jpg&f=1&nofb=1"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages-na.ssl-images-amazon.com%2Fimages%2FI%2F81pj6lhsMZL._AC_SL1500_.jpg&f=1&nofb=1" alt="Samsung Galaxy S21 Ultra" width="154" height="192"></a></td>
-            <td class="have-border">Samsung Galaxy S21 Ultra</td>
+            <td class="have-border" id="name">Samsung Galaxy S21 Ultra</td>
             <td class="have-border">Samsung</td>
             <td class="have-border">Android 11</td>
             <td class="have-border">6.8"</td>
           </tr>
           <tr>
             <td class="have-border"><a href="https://m.media-amazon.com/images/I/71IluxZN8pL._AC_SL1500_.jpg"><img src="https://m.media-amazon.com/images/I/71IluxZN8pL._AC_SL1500_.jpg" alt="Iphone 12" width="154" height="192"></a></td>
-            <td class="have-border">Iphone 12</td>
+            <td class="have-border" id="name">Iphone 12</td>
             <td class="have-border">Apple</td>
             <td class="have-border">IOS</td>
             <td class="have-border">6.1"</td>
@@ -300,14 +322,14 @@
                 <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fnolodejesescapar.com%2Fwp-content%2Fuploads%2F2021%2F01%2FSamsung-Galaxy-S21.jpg&f=1&nofb=1" alt="Samsung Galaxy S21" width="154" height="192">
               </a>
             </td>
-            <td class="have-border">Samsung Galaxy S21</td>
+            <td class="have-border" id="name">Samsung Galaxy S21</td>
             <td class="have-border">Samsung</td>
             <td class="have-border">Android 9</td>
             <td class="have-border">6.2"</td>
           </tr>
           <tr>
             <td class="have-border"><a href="https://m.media-amazon.com/images/I/817NmEWIdwL._AC_SL1500_.jpg"><img src="https://m.media-amazon.com/images/I/817NmEWIdwL._AC_SL1500_.jpg" alt="Iphone SE" width="154" height="192"></a></td>
-            <td class="have-border">Iphone SE</td>
+            <td class="have-border" id="name">Iphone SE</td>
             <td class="have-border">Apple</td>
             <td class="have-border">IOS</td>
             <td class="have-border">4.7"</td>
