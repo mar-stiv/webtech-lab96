@@ -286,6 +286,7 @@ dt {
       text-align: left;
     }
     @media screen and (max-device-width:600px) and (orientation:portrait) {
+        /*footer alignment in phones*/
         .column {
           float: none;
           display: inline-block;
