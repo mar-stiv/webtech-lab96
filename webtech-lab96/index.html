@@ -141,7 +141,10 @@
     img.top {
       vertical-align: baseline;
     }
-
+    img {
+      max-width: 100%;
+      height: auto;
+    }
     /*usually bought with*/
     .bought_with {
       text-align: center;
@@ -212,8 +215,8 @@
           background-repeat: repeat-x;
           background-color: #ffb442;
           margin-top: 30px;
-          margin-left: 4px;
-          margin-right: 4px;
+          margin-left: 10px;
+          margin-right: auto;
         }
         .header {
           width: auto;
@@ -227,26 +230,26 @@
         }
         .top5 td, th {
            display: block;
-         }
-         .top5 th {
-           font-size: 0px;
-         }
-         #name {
-           font-weight: bold;
-         }
-         input[type=text], input[type=url], input[type=number]{
-           width: 9em;
-           height: 3em;
-         }
-         input[type=text]:focus, input[type=url]:focus{
-           width: 18em;
-           height: 7em;
-         }
-         input[type=submit] {
-           width: 9em;
-           height: 3em;
-         }
-         .newest{
+        }
+        .top5 th {
+          font-size: 0px;
+        }
+        #name {
+          font-weight: bold;
+        }
+        input[type=text], input[type=url], input[type=number]{
+          width: 9em;
+          height: 3em;
+        }
+        input[type=text]:focus, input[type=url]:focus{
+          width: 18em;
+          height: 7em;
+        }
+        input[type=submit] {
+          width: 9em;
+          height: 3em;
+        }
+        .newest{
           margin-left: auto;
           text-align: center;
           width: auto;
@@ -273,6 +276,11 @@
         .column.brands {
           display: inline-block;
           background-color: #dedede;
+          text-align: left;
+        }
+        .column.brands img {
+          width: auto;
+          height: auto;
           text-align: left;
         }
     }
