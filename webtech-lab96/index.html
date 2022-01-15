@@ -80,7 +80,7 @@
 
     /*newest arrivals*/
     .newest {
-      margin-left: 130px;
+      margin: auto;
       text-align: center;
       width: 1100px;
       background-color: #f1f1f1;
@@ -109,16 +109,16 @@
     .top_month {
       text-align: center;
     }
-      ul.top-list{
-        display: inline-block;
-        text-align: left;
-        list-style-position: inside;
-        font-variant: small-caps;
-        font-size: 20px;
-        list-style: square inside url("https://media.discordapp.net/attachments/887340040496238652/931258037291876443/square-list-image.png");
-        vertical-align: baseline;
-      }
-      ul. {
+    ul.top-list{
+      display: inline-block;
+      text-align: left;
+      list-style-position: inside;
+      font-variant: small-caps;
+      font-size: 20px;
+      list-style: square inside url("https://media.discordapp.net/attachments/887340040496238652/931258037291876443/square-list-image.png");
+      vertical-align: baseline;
+    }
+    ul. {
       list-style-type: none;
       margin: 0;
       padding: 0;
@@ -137,24 +137,21 @@
       overflow: hidden;
       background-color: #333;
     }
-
     ul.nav-bar li {
       float: left;
     }
-
     ul.nav-bar li a.active {
       background-color: #04AA6D;
     }
-
     ul.nav-bar li a:hover:not(.active) {
       background-color: #111;
     }
-
     @media screen and (max-width: 600px) {
       ul.nav-bar li.right,
-      ul.nav-bar li {float: none;}
+      ul.nav-bar li {
+        float: none;
+      }
     }
-
     ul.nav-bar li a {
       display: block;
       color: white;
@@ -163,7 +160,6 @@
       text-decoration: none;
       }
     }
-
     @media screen and (max-width: 400px) {
       ul.nav-bar li a {
         text-align: center;
@@ -180,6 +176,7 @@
       max-width: 100%;
       height: auto;
     }
+
     /*usually bought with*/
     .bought_with {
       text-align: center;
@@ -244,7 +241,7 @@
       }
     }
     @media screen and (max-device-width:1024px) and (orientation:portrait){
-        /*tablet has portrait orientation.*/
+        /*phones and tablets*/
         body {
           background-image: url("https://www.schemecolor.com/wallpaper?i=39490&desktop" );
           background-repeat: repeat-x;
@@ -270,6 +267,7 @@
           font-size: 0px;
         }
         #name {
+          font-size: 1.1rem;
           font-weight: bold;
         }
         input[type=text], input[type=url], input[type=number]{
@@ -291,10 +289,14 @@
           background-color: #f1f1f1;
           border: 5px double orange;
           box-shadow: none;
+          overflow: auto;
         }
-        /*.footer {
-          block-size: 80vw;
-        }*/
+        .top_month h2 {
+          background-color: #ff8c12;
+        }
+        .bought_with h2 {
+          background-color: #ff8c12;
+        }
         .column {
           float: none;
         }
@@ -305,19 +307,13 @@
         .column.brands {
           display: inline-block;
           background-color: #dedede;
-          text-align: left;
         }
         .column.brands img {
           width: auto;
           height: auto;
-          text-align: left;
         }
     }
-    @media screen and (max-device-width:1024px) and (orientation:landscape){
-        /*
-        put your tablet device CSS code here when tablet has landscape orientation.
-        */
-    }
+
     figcaption{
       text-align: right;
     }
