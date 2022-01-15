@@ -227,6 +227,15 @@ dt {
   display: table;
   clear: both;
 }
+/*Caption for Figure*/
+figcaption{
+  text-align: right;
+}
+/*Changes font for all Pre*/
+pre{
+  font-family: 'Athelas',sans-serif;
+}
+
 @media screen and (max-width: 600px) {
   .column.purposes, .column.brands {
     width: 100%;
@@ -292,12 +301,4 @@ dt {
           display: inline-block;
           background-color: #dedede;
         }
-}
-/*Caption for Figure*/
-figcaption{
-  text-align: right;
-}
-/*Changes font for all Pre*/
-pre{
-  font-family: 'Athelas',sans-serif;
 }
