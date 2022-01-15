@@ -31,6 +31,7 @@
 
     /*header*/
     .header {
+      width: 95vw;
       background-color: #f1f1f1;
       padding: 40px 20px;
       text-align: center;
@@ -80,6 +81,7 @@
       width: 1100px;
       background-color: #f1f1f1;
       border: 10px double orange; /*shorthand property*/
+      box-shadow: 5px 5px 2px lightgrey;
     }
     .newest caption {
       caption-side: top;
@@ -182,6 +184,46 @@
         width: 100%;
       }
     }
+    @media screen and (max-device-width:1024px) and (orientation:portrait){
+        /*tablet has portrait orientation.*/
+        body {
+          background-image: none;
+          background-color: #ffb442;
+        }
+        .header {
+          width: 90vw;
+        }
+        h1 {
+          font: arial bold 3rem oblique;
+        }
+        .top5 {
+
+        }
+        .newest{
+
+        }
+        .top_month {
+
+        }
+        .bought_with {
+
+        }
+        .footer {
+          block-size: 80vw;
+        }
+        .column {
+          float: none;
+        }
+        .column.brands {
+          text-indent: 30%;
+          text-align: left;
+        }
+    }
+    @media screen and (max-device-width:1024px) and (orientation:landscape){
+        ...
+        put your tablet device CSS code here when tablet has landscape orientation.
+        ...
+    }
     figcaption{
       text-align: right;
     }
@@ -192,6 +234,8 @@
 
 
   <body>
+    <meta name=”viewport” content=”width=device-width, initial-scale=1″>
+
     <div class="header">
       <h1>
       <a href="index.html">
