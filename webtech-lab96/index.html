@@ -79,7 +79,7 @@
 
     /*newest arrivals*/
     .newest {
-      margin-left: 130px;
+      margin: auto;
       text-align: center;
       width: 1100px;
       background-color: #f1f1f1;
@@ -147,7 +147,9 @@
     }
     @media screen and (max-width: 600px) {
       ul.nav-bar li.right,
-      ul.nav-bar li {float: none;}
+      ul.nav-bar li {
+        float: none;
+      }
     }
     ul.nav-bar li a {
       display: block;
@@ -238,7 +240,7 @@
       }
     }
     @media screen and (max-device-width:1024px) and (orientation:portrait){
-        /*tablet has portrait orientation.*/
+        /*phone*/
         body {
           background-image: url("https://www.schemecolor.com/wallpaper?i=39490&desktop" );
           background-repeat: repeat-x;
@@ -264,6 +266,7 @@
           font-size: 0px;
         }
         #name {
+          font-size: 1.1rem;
           font-weight: bold;
         }
         input[type=text], input[type=url], input[type=number]{
@@ -285,16 +288,8 @@
           background-color: #f1f1f1;
           border: 5px double orange;
           box-shadow: none;
+          overflow: auto;
         }
-        .top_month {
-
-        }
-        .bought_with {
-
-        }
-        /*.footer {
-          block-size: 80vw;
-        }*/
         .column {
           float: none;
         }
@@ -305,12 +300,20 @@
         .column.brands {
           display: inline-block;
           background-color: #dedede;
-          text-align: left;
+
         }
         .column.brands img {
           width: auto;
           height: auto;
-          text-align: left;
+
+        }
+    }
+
+    @media (max-width: 767px) {
+        .row {
+            -webkit-column-count: 2;
+            -moz-column-count: 2;
+            column-count: 2;
         }
     }
     @media screen and (max-device-width:1024px) and (orientation:landscape){
