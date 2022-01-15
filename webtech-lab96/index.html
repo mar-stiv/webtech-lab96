@@ -8,7 +8,7 @@
     <link rel="icon" href="https://media.discordapp.net/attachments/887340040496238652/931255515923771392/logo.png">
   </head>
 
-  <style media="screen">
+  <style>
     * {
       box-sizing: border-box;
     }
@@ -80,7 +80,7 @@
 
     /*newest arrivals*/
     .newest {
-      margin: auto;
+      margin-left: 130px;
       text-align: center;
       width: 1100px;
       background-color: #f1f1f1;
@@ -109,16 +109,16 @@
     .top_month {
       text-align: center;
     }
-    ul.top-list{
-      display: inline-block;
-      text-align: left;
-      list-style-position: inside;
-      font-variant: small-caps;
-      font-size: 20px;
-      list-style: square inside url("https://media.discordapp.net/attachments/887340040496238652/931258037291876443/square-list-image.png");
-      vertical-align: baseline;
-    }
-    ul. {
+      ul.top-list{
+        display: inline-block;
+        text-align: left;
+        list-style-position: inside;
+        font-variant: small-caps;
+        font-size: 20px;
+        list-style: square inside url("https://media.discordapp.net/attachments/887340040496238652/931258037291876443/square-list-image.png");
+        vertical-align: baseline;
+      }
+      ul. {
       list-style-type: none;
       margin: 0;
       padding: 0;
@@ -137,21 +137,24 @@
       overflow: hidden;
       background-color: #333;
     }
+
     ul.nav-bar li {
       float: left;
     }
+
     ul.nav-bar li a.active {
       background-color: #04AA6D;
     }
+
     ul.nav-bar li a:hover:not(.active) {
       background-color: #111;
     }
+
     @media screen and (max-width: 600px) {
       ul.nav-bar li.right,
-      ul.nav-bar li {
-        float: none;
-      }
+      ul.nav-bar li {float: none;}
     }
+
     ul.nav-bar li a {
       display: block;
       color: white;
@@ -160,6 +163,7 @@
       text-decoration: none;
       }
     }
+
     @media screen and (max-width: 400px) {
       ul.nav-bar li a {
         text-align: center;
@@ -176,7 +180,6 @@
       max-width: 100%;
       height: auto;
     }
-
     /*usually bought with*/
     .bought_with {
       text-align: center;
@@ -205,6 +208,8 @@
     /*footer*/
     .footer {
       page-break-before: always;
+      block-size: 300px;
+      background-color: #dedede;
     }
     .footer li {
       font-style: normal;
@@ -213,8 +218,6 @@
       font-weight: normal;
     }
     .column {
-      background-color: #dedede;
-      width: 95vw;
       float: left;
       padding: 30px;
     }
@@ -241,77 +244,80 @@
       }
     }
     @media screen and (max-device-width:1024px) and (orientation:portrait){
-      /*phones and tablets*/
-      body {
-        background-image: url("https://www.schemecolor.com/wallpaper?i=39490&desktop" );
-        background-repeat: repeat-x;
-        background-color: #ffb442;
-        margin-top: 30px;
-        margin-left: 10px;
-        margin-right: 10px;
-      }
-      .header {
-        width: auto;
+        /*tablet has portrait orientation.*/
+        body {
+          background-image: url("https://www.schemecolor.com/wallpaper?i=39490&desktop" );
+          background-repeat: repeat-x;
+          background-color: #ffb442;
+          margin-top: 30px;
+          margin-left: 10px;
+          margin-right: auto;
         }
-      h1 {
-        font: arial bold 3rem oblique;
-      }
-      .top5 table {
-        width: auto;
-        background-color: #f1f1f1;
-      }
-      .top5 td, .top5 th {
-         display: block;
-      }
-      .top5 th {
-        font-size: 0px;
-      }
-      #name {
-        font-size: 1.1rem;
-        font-weight: bold;
-      }
-      input[type=text], input[type=url], input[type=number]{
-        width: 9em;
-        height: 3em;
-      }
-      input[type=text]:focus, input[type=url]:focus{
-        width: 18em;
-        height: 7em;
-      }
-      input[type=submit] {
-        width: 9em;
-        height: 3em;
-      }
-      .newest{
-        width: auto;
-        background-color: #f1f1f1;
-        border: 5px double orange;
-        box-shadow: none;
-        overflow: auto;
-      }
-      .newest th {
-
-      }
-      .top_month h2 {
-        background-color: #ff8c12;
-      }
-      .bought_with h2 {
-        background-color: #ff8c12;
-      }
-      .column.brands img {
-        width: auto;
-        height: auto;
-      }
-
-      @media screen and (max-device-width:600px) and (orientation:portrait) {
+        .header {
+          width: auto;
+        }
+        h1 {
+          font: arial bold 3rem oblique;
+        }
+        .top5 table {
+          width: auto;
+          background-color: #f1f1f1;
+        }
+        .top5 td, th {
+           display: block;
+        }
+        .top5 th {
+          font-size: 0px;
+        }
+        #name {
+          font-weight: bold;
+        }
+        input[type=text], input[type=url], input[type=number]{
+          width: 9em;
+          height: 3em;
+        }
+        input[type=text]:focus, input[type=url]:focus{
+          width: 18em;
+          height: 7em;
+        }
+        input[type=submit] {
+          width: 9em;
+          height: 3em;
+        }
+        .newest{
+          margin-left: auto;
+          text-align: center;
+          width: auto;
+          background-color: #f1f1f1;
+          border: 5px double orange;
+          box-shadow: none;
+        }
+        /*.footer {
+          block-size: 80vw;
+        }*/
         .column {
           float: none;
+        }
+        .column.purposes {
           display: inline-block;
           background-color: #dedede;
         }
-      }
+        .column.brands {
+          display: inline-block;
+          background-color: #dedede;
+          text-align: left;
+        }
+        .column.brands img {
+          width: auto;
+          height: auto;
+          text-align: left;
+        }
     }
-
+    @media screen and (max-device-width:1024px) and (orientation:landscape){
+        /*
+        put your tablet device CSS code here when tablet has landscape orientation.
+        */
+    }
     figcaption{
       text-align: right;
     }
@@ -475,7 +481,8 @@
        </table>
        <br>
        <iframe width="400" height="206" src="https://www.youtube.com/embed/JjxAP4fetvY" name= "youtube-video" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-       <br><caption>What to expect when you buy the Samsung Galaxy AO3!</caption><br>
+       <br>
+       <caption>What to expect when you buy the Samsung Galaxy AO3!</caption>
      </section>
        <br>
 
@@ -531,7 +538,6 @@
           <p class="aligncentre"><img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.budgetmobilephones.com.au%2Fwp-content%2Fuploads%2F2010%2F10%2Fapple-nokia-lg-motorola-samsung-sony-logos.jpg&f=1&nofb=1" alt="Brands" width="10%"></p>
           <figcaption>Starting from the left: Apple, Nokia, Motorola, LG, Samsung, Sony Ericsson</figcation>
         </figure>
-        <br>
       </div>
     </section>
   </body>
