@@ -229,17 +229,31 @@
 </html>
 <!-- Short Browser Compatibility Report -->
 <!-- 1. Print Style Testing on Different Browsers
-
--->
-<!-- 2. HTML5 and CSS Constructs in Different Browsers (worked/didn't)
-    First, Rita and I checked which constructs are accepted by what browser and their version.
-    Next, we discussed which browsers we use and concluded we would test our code on:
+    First we discussed which browsers we use and concluded we would test our code on:
     - Safari
     - Edge
     - Chrome
     - Opera
     - Firefox
+    We decided to use those 5 as we think they are the most common used ones.
 
+    In our testing we concluded that our design is compatible with each browser.
+    We used the "page-break-after" and "page-break-before" commands to try and enssure a similar display on all Browsers.
+
+    Chrome and Firefox have the same printing display. Our website is printed in 4 pages, leaving a space between out two tables.
+    Opera and Edge have the same display as well. These two Browsers also print the site in 4 pages, but they display the table slightly bigger than the previous browsers. The use of "page-break-after" is really useful with these browsers as the design falls apart without it.
+    Finally Safari prints the webstite in 5 pages. This browser also makes the table slightly bigger as the previous two browsers, but it also includes a white page separating the contents of the page and the footer. This is the only browser to do so.
+
+    The design follows consistent across the 5 browsers with slight changes.
+-->
+<!-- 2. Test on Different Screen Sizes
+    To test our Website compatibility with different devices we used the chrome DevTool.
+    The Chrome desktop browser's DevTools provides a screen emulator that can mimic a wide range of smartphones and tablets. We access the DevTools screen emulator by typing Ctrl-Shift-I in Chrome (Windows) or Command-Option-I (Mac).
+    We were able to view our page in different sizes and we were able to adjust our design accordingly.
+-->
+<!-- 3. HTML5 and CSS Constructs in Different Browsers (worked/didn't)
+    First, we checked which constructs are accepted by what browser and their version.
+    We decided to use the same 5 browsers we did for the print check.
     To ensure accurate support, we made use of the latest versions of the browsers.
     We discovered that constructs such as 'font-size-override'  is not shown in the browsers we made use of, except for firefox.
     Additionally, edge was found to not support a few constructs which other browsers did such as "text-emphasis", "text-combine-upright", and "font-variant-numeric".
