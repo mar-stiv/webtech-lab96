@@ -107,16 +107,6 @@ input[type=submit]:active {
     list-style: square inside url("https://media.discordapp.net/attachments/887340040496238652/931258037291876443/square-list-image.png");
     vertical-align: baseline;
   }
-/*ul. {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  width: 25%;
-  background-color: #f1f1f1;
-  position: fixed;
-  height: 100%;
-  overflow: auto;
-}*/
 
 /* Responsive Navigation Bar */
 ul.nav-bar {
