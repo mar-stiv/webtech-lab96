@@ -49,6 +49,9 @@ h1 {
 .top5 table {
   background-color: white;
 }
+#myTable th:hover {
+  color: rgb(232, 124, 0);
+}
 input[type=text], input[type=url]{
   width: 100px;
 }
@@ -174,9 +177,6 @@ a:link {
   color: black;
 }
 a:hover {
-  color: rgb(232, 124, 0);
-}
-th:hover {
   color: rgb(232, 124, 0);
 }
 a:active {
