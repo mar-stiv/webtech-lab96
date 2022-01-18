@@ -63,6 +63,9 @@ input[type=text]:focus, input[type=url]:focus{
 input[type=submit] {
   background-color: #ffa530;
 }
+input[type=submit]:hover {
+  background-color: #e89220;
+}
 input[type=submit]:active {
   background-color: #db701f;
 }
