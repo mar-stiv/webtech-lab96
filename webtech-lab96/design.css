@@ -173,6 +173,9 @@ a:link {
 a:hover {
   color: rgb(232, 124, 0);
 }
+th:hover {
+  color: rgb(232, 124, 0);
+}
 a:active {
   color: rgb(107, 0, 5);
 }
