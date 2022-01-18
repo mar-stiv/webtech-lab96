@@ -1,43 +1,61 @@
-function sortTable(n){
-  var table, rows, switching, el1, el2, shouldSwitch, direction, switchCount = 0;
-  table = document.getElementsById("myTable");
+function sortTable(n) {
+  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+  table = document.getElementById("myTable");
   switching = true;
-  direction = "asc" // ascending directionection to sort
-
-  while(switching){ // loops until no switching can be done
+  //Set the sorting direction to ascending:
+  dir = "asc";
+  /*Make a loop that will continue until
+  no switching has been done:*/
+  while (switching) {
+    //start by saying: no switching is done:
     switching = false;
     rows = table.rows;
-
-    for(var i=1; i<(rows.length - 2); i++){ // loops through rows from the 2nd
-      shouldSwitch = false; // there should be no switching
-      el1 = rows[i].getElementsByTagName("TD")[n]; // element 1
-      el2 = rows[i+1].getElementsByTagName("TD")[n]; // element 2
-
-      if(direction=="asc"){ // Checks if two rows should switch position
-        if(el1.innerHTML.toLowerCase()>el2.innerHTML.toLowerCase()){ // If el1 is bigger than el2
-            shouldSwitch = true;
-            break;
+    /*Loop through all table rows (except the
+    first, which contains table headers):*/
+    for (i = 1; i < (rows.length - 2); i++) {
+      //start by saying there should be no switching:
+      shouldSwitch = false;
+      /*Get the two elements you want to compare,
+      one from current row and one from the next:*/
+      x = rows[i].getElementsByTagName("TD")[n];
+      y = rows[i + 1].getElementsByTagName("TD")[n];
+      /*check if the two rows should switch place,
+      based on the direction, asc or desc:*/
+      if (dir == "asc") {
+        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+          //if so, mark as a switch and break the loop:
+          shouldSwitch= true;
+          break;
         }
-      }else if(direction="desc"){
-        if(el1.innerHTML.toLowerCase()<el2.innerHTML.toLowerCase()){ // If el2 is bigger than el1
-            shouldSwitch = true;
-            break;
+      } else if (dir == "desc") {
+        if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+          //if so, mark as a switch and break the loop:
+          shouldSwitch = true;
+          break;
         }
       }
     }
-
-    if(shouldSwitch){ // If it is true, make the switch and say it has been done
-      rows[i].parentNode.insertBefore(rows[i+1],rows[i]);
+    if (shouldSwitch) {
+      /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
       switching = true;
-      switchCount++; // each time a switch is done, increment
-    }else{
-      if(switchCount==0 && direction=="asc"){ // If no switching has been done and the directionection is asc
-        direction = "desc";
+      //Each time a switch is done, increase this count by 1:
+      switchcount ++;
+    } else {
+      /*If no switching has been done AND the direction is "asc",
+      set the direction to "desc" and run the while loop again.*/
+      if (switchcount == 0 && dir == "asc") {
+        dir = "desc";
         switching = true;
       }
     }
   }
 }
-function this.form.reset() {
-  window.location.replace("https://wt.ops.labs.vu.nl/api22/779519fb/reset");
+function thisFormReset() {
+  window.location.href = "https://wt.ops.labs.vu.nl/api22/779519fb/reset";
 }
+
+/* References */
+
+/* Task 1: https://www.w3schools.com/howto/howto_js_sort_table.asp */
