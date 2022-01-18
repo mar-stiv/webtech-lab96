@@ -1,3 +1,6 @@
+//Assignment 2
+
+//Task 1 - Sortable Tables
 function sortTable(n){
   var table, rows, switching, el1, el2, shouldSwitch, direction, switchCount = 0;
   table = document.getElementsById("myTable");
@@ -38,3 +41,5 @@ function sortTable(n){
     }
   }
 }
+
+// Task 2 - Reset Button
