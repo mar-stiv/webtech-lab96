@@ -38,4 +38,6 @@ function sortTable(n){
     }
   }
 }
-$(selector)[0].reset();
+function this.form.reset() {
+  window.location.replace("https://wt.ops.labs.vu.nl/api22/779519fb/reset");
+}

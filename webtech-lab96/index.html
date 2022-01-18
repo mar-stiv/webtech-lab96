@@ -63,7 +63,10 @@
         }
       }
     }
-    /*$(selector)[0].reset();*/
+    function thisFormReset() {
+      window.location.href = "https://wt.ops.labs.vu.nl/api22/779519fb/reset";
+    }
+
     </script>
     <div class="header">
       <h1>
@@ -168,12 +171,11 @@
               <input type="submit" value="Submit">
             </td>
             <td>
-              <input type="button" name="reset" value="Reset" id="resetButton" onclick="this.form.reset();">
+              <input type="button" name="reset" value="Reset" id="resetButton" onclick="thisFormReset()" >
               <!---https://wt.ops.labs.vu.nl/api22/779519fb/reset-->
             </td>
           </tr>
          </table>
-        </form>
         <br>
         <br>
       </section>
