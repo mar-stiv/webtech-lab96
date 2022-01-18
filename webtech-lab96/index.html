@@ -66,14 +66,15 @@
     function thisFormReset() {
       window.location.href = "https://wt.ops.labs.vu.nl/api22/779519fb/reset";
     }
-
     /*
     or
     function thisFormReset() {
-      window.open("https://wt.ops.labs.vu.nl/api22/779519fb/reset");
-    }
+      $("#reset").click(function () {
+        $.get("https://wt.ops.labs.vu.nl/api22/779519fb/reset", function (data, status) {
+            alert("Data: " + data + "\nStatus: " + status)
+          }) }
+      }
     */
-
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> <!--- include the jQuery library -->
     <div class="header">
@@ -179,10 +180,32 @@
               <input type="submit" value="Submit">
             </td>
             <td>
-              <input type="button" name="reset" value="Reset" id="resetButton" onclick="thisFormReset()" >
-              <!---https://wt.ops.labs.vu.nl/api22/779519fb/reset-->
+              <input type="button" name="reset" value="Reset" id="resetButton" onclick="thisFormReset()">
+              <!---activates link: https://wt.ops.labs.vu.nl/api22/779519fb/reset-->
             </td>
           </tr>
+         </table>
+         <script>
+         (
+           function(){ // self-invoking function
+           var Http = new XMLHttpRequest(); // create instance
+           Http.open("GET","https://wt.ops.labs.vu.nl/api22/779519fb",true); // pass GET asynchronous request for retrieving JSON from url
+           Http.onreadystatechange = function(){ // event handler for ready state
+              if(Http.readyState == 4 && Http.status == 200){
+                 var phones = JSON.parse(Http.responseText);
+                 const phone = [] ; // contains data of each phone
+                 phones.map((item,index)=>{
+                   phone.push("<tr><td>" + item.model + "</td> + "<td>" + item.brand + "</td>"+ "<td>" + item.os + "</td>" + "<td>" + "<img src= \"" +item.image + "\" " + "</td></tr>"); // per phone
+                 }, this);
+                 document.getElementById("phones").innerHTML = phone[0];// table element with id=phones
+              }
+           }
+           Http.send(); // complete request to server
+         }
+         )();
+         </script>
+         <table id="phones">
+
          </table>
         <br>
         <br>
