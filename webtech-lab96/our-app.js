@@ -1,6 +1,6 @@
 function sortTable(n){
   var table, rows, switching, el1, el2, shouldSwitch, direction, switchCount = 0;
-  table = document.getElementsById("top-5");
+  table = document.getElementsById("myTable");
   switching=true;
   direction = "asc" // ascending directionection to sort
 
@@ -8,7 +8,7 @@ function sortTable(n){
     switching = false;
     rows = table.rows;
 
-    for(var i=1; i<(rows.length - 1); i++){ // loops through rows from the 2nd
+    for(var i=1; i<(rows.length - 2); i++){ // loops through rows from the 2nd
       shouldSwitch = false; // there should be no switching
       el1 = rows[i].getElementsByTagName("TD")[n]; // element 1
       el2 = rows[i+1].getElementsByTagName("TD")[n]; // element 2

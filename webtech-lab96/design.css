@@ -66,6 +66,9 @@ input[type=submit]:active {
 #os {
   color: #737373;
 }
+.top5 th :hover{
+  background-color: #FFFF00;
+}
 
 /*newest arrivals*/
 .newest {
