@@ -1,10 +1,7 @@
-//Assignment 2
-
-//Task 1 - Sortable Tables
 function sortTable(n){
   var table, rows, switching, el1, el2, shouldSwitch, direction, switchCount = 0;
   table = document.getElementsById("myTable");
-  switching=true;
+  switching = true;
   direction = "asc" // ascending directionection to sort
 
   while(switching){ // loops until no switching can be done
@@ -41,5 +38,4 @@ function sortTable(n){
     }
   }
 }
-
-// Task 2 - Reset Button
+$(selector)[0].reset();

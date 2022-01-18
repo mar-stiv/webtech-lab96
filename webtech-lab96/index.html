@@ -63,6 +63,7 @@
         }
       }
     }
+    /*$(selector)[0].reset();*/
     </script>
     <div class="header">
       <h1>
@@ -165,6 +166,10 @@
             </td>
             <td>
               <input type="submit" value="Submit">
+            </td>
+            <td>
+              <input type="button" name="reset" value="Reset" id="resetButton" onclick="this.form.reset();">
+              <!---https://wt.ops.labs.vu.nl/api22/779519fb/reset-->
             </td>
           </tr>
          </table>

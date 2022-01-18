@@ -66,6 +66,9 @@ input[type=submit] {
 input[type=submit]:active {
   background-color: #db701f;
 }
+input[type=button]:active {
+  background-color: #696969;
+}
 #os {
   color: #737373;
 }
