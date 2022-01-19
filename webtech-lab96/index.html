@@ -187,6 +187,7 @@
           </tr>
          </table>
          <script>
+         // Task 3
          (
            function(){ // self-invoking function
            var Http = new XMLHttpRequest(); // create instance
@@ -198,17 +199,23 @@
                  phones.map((item,index)=>{
                    phone.push("<tr><td>" + item.model + "</td> + "<td>" + item.brand + "</td>"+ "<td>" + item.os + "</td>" + "<td>" + "<img src= \"" +item.image + "\" " + "</td></tr>"); // per phone
                  }, this);
-                 document.getElementById("phones").innerHTML = phone[0];// table element with id=phones
+                fetch = document.getElementById("phones")// table element with id=phones
+
+                for(var i=0; i<phone.length;i++){
+                  var newRow = fetch.insertRow(fetch.length);
+                  for(var j=0; j<phone[i].length; j++){
+                    var cell = newRow.insertCell(j);
+                    cell.innnerHTML = phone[i][j];
+                  }
+                }
               }
            }
            Http.send(); // complete request to server
          }
          )();
          </script>
-         <table id="phones">
-           <tr>
+         <table id="phones" class="table">
 
-           </tr>
          </table>
         <br>
         <br>
