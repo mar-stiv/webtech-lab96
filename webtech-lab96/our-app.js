@@ -55,23 +55,49 @@ function thisFormReset() {
 */
 
 //Task 3
+
+// functional grid
+const columnDefs = [ // create object of properties
+             { field: 'ID' },
+             { field: 'Model' },
+             { field: 'Brand' },
+             { field: 'OS' },
+             { field: 'Screensize' },
+         ];
+
+const gridOptions = { // configures grid
+             columnDefs: columnDefs, // assigned array of columns
+             onGridReady: (event) =>{renderDataInTheTable(event.api)} // calls function when grid has been created
+         };
+
+const GridDiv = document.getElementById('data-table');
+new agGrid.Grid(GridDiv, gridOptions); // new grid for div
+
 fetch('https://wt.ops.labs.vu.nl/api22/779519fb') // GET request on URL
    .then(function (response) {
        return response.json(); // return array containing all phone items
-   }).then(function (apiJsonData) {
-       console.log(apiJsonData); // write to console
-       renderDataIntoTable(apiJsonData);
+   }).then(function (data) {
+        api.setRowData(data);
+        api.sizeColumnsToFit();
    })
 
- function renderDataIntoTable(phones){ // finds table in DOM to append new rows to
-     const mytable = document.getElementById("phones");
-     phones.forEach(phone =>{
-       let newRow = document.createElement("tr"); // for each item, create new tr element
-       Object.values(phone).forEach((value) =>{
-         let cell = document.createElement("td"); // adds each value as a td element
-         cell.innerText = value;
-         newRow.appendChild(cell);
-       })
-       mytable.appendChild(newRow);
-     });
+
+ function renderDataIntoTable(api){ // finds table in DOM to append new rows to
+   fetch('https://wt.ops.labs.vu.nl/api22/779519fb')
+              .then(function (response) {
+                  return response.json();
+              }).then(function (data) {
+                  api.setRowData(data);
+                  api.sizeColumnsToFit();
+              })
+ }
+
+ function isValidURL(str){ // validate URL
+   var regex = /(?:https?):\/\/(\w+:?\w*)?(\S+)(:\d+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/;
+   if(!regex .test(str)) {
+     alert("Please enter valid URL.");
+     return false;
+   } else {
+     return true;
+  }
  }
