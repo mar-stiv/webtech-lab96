@@ -54,27 +54,24 @@ function thisFormReset() {
   }
 */
 
-// Task 3 -
-(
-  function(){ // self-invoking function
-  var Http = new XMLHttpRequest(); // create instance
-  Http.open("GET","https://wt.ops.labs.vu.nl/api22/779519fb",true); // pass GET asynchronous request for retrieving JSON from url
-  Http.onreadystatechange = function(){ // event handler for ready state
-     if(Http.readyState == 4 && Http.status == 200){
-        var phones = JSON.parse(Http.responseText);
-        let models, brands, os, images = "";
-        phones.map((item,index)=>{
-          models += "<li>" + item.model + "</li>";
-          brands += "<li>" + item.brand + "</li>";
-          os += "<li>" + item.os + "</li>";
-          images += "<li>" + item.image + "</li>";
-        }, this);
-        //document.getElementById("phones").innerHTML = models; // ul element with id=phones
-        document.getElementById("phones").innerHTML = brands;
-        document.getElementById("phones").innerHTML = os;
-        document.getElementById("phones").innerHTML = images;
-     }
-  }
-  Http.send(); // complete request to server
-}
-)();
+//Task 3
+fetch('https://wt.ops.labs.vu.nl/api22/779519fb') // GET request on URL
+   .then(function (response) {
+       return response.json(); // return array containing all phone items
+   }).then(function (apiJsonData) {
+       console.log(apiJsonData); // write to console
+       renderDataIntoTable(apiJsonData);
+   })
+
+ function renderDataIntoTable(phones){ // finds table in DOM to append new rows to
+     const mytable = document.getElementById("phones");
+     phones.forEach(phone =>{
+       let newRow = document.createElement("tr"); // for each item, create new tr element
+       Object.values(phone).forEach((value) =>{
+         let cell = document.createElement("td"); // adds each value as a td element
+         cell.innerText = value;
+         newRow.appendChild(cell);
+       })
+       mytable.appendChild(newRow);
+     });
+ }

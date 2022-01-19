@@ -188,34 +188,37 @@
          </table>
          <script>
          // Task 3
-         (
-           function(){ // self-invoking function
-           var Http = new XMLHttpRequest(); // create instance
-           Http.open("GET","https://wt.ops.labs.vu.nl/api22/779519fb",true); // pass GET asynchronous request for retrieving JSON from url
-           Http.onreadystatechange = function(){ // event handler for ready state
-              if(Http.readyState == 4 && Http.status == 200){
-                 var phones = JSON.parse(Http.responseText);
-                 const phone = [] ; // contains data of each phone
-                 phones.map((item,index)=>{
-                   phone.push("<tr><td>" + item.model + "</td> + "<td>" + item.brand + "</td>"+ "<td>" + item.os + "</td>" + "<td>" + "<img src= \"" +item.image + "\" " + "</td></tr>"); // per phone
-                 }, this);
-                fetch = document.getElementById("phones")// table element with id=phones
+         fetch('https://wt.ops.labs.vu.nl/api22/779519fb') // GET request on URL
+            .then(function (response) {
+                return response.json(); // return array containing all phone items
+            }).then(function (apiJsonData) {
+                console.log(apiJsonData); // write to console
+                renderDataIntoTable(apiJsonData);
+            })
 
-                for(var i=0; i<phone.length;i++){
-                  var newRow = fetch.insertRow(fetch.length);
-                  for(var j=0; j<phone[i].length; j++){
-                    var cell = newRow.insertCell(j);
-                    cell.innnerHTML = phone[i][j];
-                  }
-                }
-              }
-           }
-           Http.send(); // complete request to server
-         }
-         )();
+          function renderDataIntoTable(phones){ // finds table in DOM to append new rows to
+              const mytable = document.getElementById("phones");
+              phones.forEach(phone =>{
+                let newRow = document.createElement("tr"); // for each item, create new tr element
+                Object.values(phone).forEach((value) =>{
+                  let cell = document.createElement("td"); // adds each value as a td element
+                  cell.innerText = value;
+                  newRow.appendChild(cell);
+                })
+                mytable.appendChild(newRow);
+              });
+          }
+
          </script>
          <table id="phones" class="table">
-
+           <tr>
+             <th>ID</th>
+             <th>OS</th>
+             <th>Model</th>
+             <th>Brand</th>
+             <th>Image</th>
+             <th>Screensize</th>
+           </tr>
          </table>
         <br>
         <br>
