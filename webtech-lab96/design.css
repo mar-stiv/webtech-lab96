@@ -49,9 +49,6 @@ h1 {
 .top5 table {
   background-color: white;
 }
-#myTable th:hover {
-  color: rgb(232, 124, 0);
-}
 #phones th:hover{
   color: rgb(232, 124, 0);
 }
@@ -271,7 +268,7 @@ pre{
     .top5 th {
       font-size: 0px;
     }
-    #name {
+    #phones th {
       font-weight: bold;
     }
     /*bigger buttons*/
@@ -311,6 +308,4 @@ pre{
 }
 
 @media print {
-  orphans: 4;
-  widows: 2;
-}
+      orphans: 4;widows: 2;}
