@@ -52,6 +52,9 @@ h1 {
 #myTable th:hover {
   color: rgb(232, 124, 0);
 }
+#phones th:hover{
+  color: rgb(232, 124, 0);
+}
 input[type=text], input[type=url]{
   width: 100px;
 }

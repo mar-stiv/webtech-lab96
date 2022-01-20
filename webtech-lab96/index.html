@@ -102,92 +102,6 @@
 <!--- Top 5 Phones -->
     <section class="top5" id="top5">
       <br><p>Check out our top 5 mobile phones!</p>
-      <div id="data-form">
-      <form action="" onsubmit="return FUNCTION()"id="my-form" method="post">
-        <table id="myTable">
-          <tr>
-            <th>Image</th>
-            <th onclick="sortTable(1)">Model</th>
-            <th onclick="sortTable(2)">Brand</th>
-            <th onclick="sortTable(3)">OS</th>
-            <th onclick="sortTable(4)">Screensize</th>
-          </tr>
-          <tr>
-            <td class="have-border">
-              <a href="https://m.media-amazon.com/images/I/613vLmkDsJL._AC_SL1500_.jpg"><img src="https://m.media-amazon.com/images/I/613vLmkDsJL._AC_SL1500_.jpg" alt="Iphone 13 pro" width="154" height="192"></a>
-            </td>
-            <td class="have-border" id="name">Iphone 13 pro</td>
-            <td class="have-border">Apple</td>
-            <td class="have-border">IOS</td>
-            <td class="have-border">6.1"</td>
-          </tr>
-          <tr>
-            <td class="have-border"><a href="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages-na.ssl-images-amazon.com%2Fimages%2FI%2F81pj6lhsMZL._AC_SL1500_.jpg&f=1&nofb=1"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages-na.ssl-images-amazon.com%2Fimages%2FI%2F81pj6lhsMZL._AC_SL1500_.jpg&f=1&nofb=1" alt="Samsung Galaxy S21 Ultra" width="154" height="192"></a></td>
-            <td class="have-border" id="name">Samsung Galaxy S21 Ultra</td>
-            <td class="have-border">Samsung</td>
-            <td class="have-border">Android</td>
-            <td class="have-border">6.8"</td>
-          </tr>
-          <tr>
-            <td class="have-border"><a href="https://m.media-amazon.com/images/I/71IluxZN8pL._AC_SL1500_.jpg"><img src="https://m.media-amazon.com/images/I/71IluxZN8pL._AC_SL1500_.jpg" alt="Iphone 12" width="154" height="192"></a></td>
-            <td class="have-border" id="name">Iphone 12</td>
-            <td class="have-border">Apple</td>
-            <td class="have-border">IOS</td>
-            <td class="have-border">6.1"</td>
-          </tr>
-          <tr>
-            <td class="have-border">
-              <a href="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fnolodejesescapar.com%2Fwp-content%2Fuploads%2F2021%2F01%2FSamsung-Galaxy-S21.jpg&f=1&nofb=1">
-                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fnolodejesescapar.com%2Fwp-content%2Fuploads%2F2021%2F01%2FSamsung-Galaxy-S21.jpg&f=1&nofb=1" alt="Samsung Galaxy S21" width="154" height="192">
-              </a>
-            </td>
-            <td class="have-border" id="name">Samsung Galaxy S21</td>
-            <td class="have-border">Samsung</td>
-            <td class="have-border">Android</td>
-            <td class="have-border">6.2"</td>
-          </tr>
-          <tr>
-            <td class="have-border"><a href="https://m.media-amazon.com/images/I/817NmEWIdwL._AC_SL1500_.jpg"><img src="https://m.media-amazon.com/images/I/817NmEWIdwL._AC_SL1500_.jpg" alt="Iphone SE" width="154" height="192"></a></td>
-            <td class="have-border" id="name">Iphone SE</td>
-            <td class="have-border">Apple</td>
-            <td class="have-border">IOS</td>
-            <td class="have-border">4.7"</td>
-          </tr>
-          <tr>
-            <td><pre>For Employees ONLY!        <em>Add new phone to server:</em></pre></td>
-          </tr>
-          <!--- Form to be filled in -->
-          <tr>
-            <td>
-              <input type="url" name="image" id="image" placeholder="Paste Image Link Here" required>
-            </td>
-            <td>
-              <input type="text" name="model" id="model" placeholder="Ex:IPhone 11" required>
-            </td>
-            <td>
-              <input type="text" name="brand" id="brand" placeholder="Ex: Apple" required>
-            </td>
-            <td>
-              <select name="os" id="os" placeholder="OS" required>
-                <option value="" hidden>Pick an <abbr title="Operating System">OS</abbr></option>
-                <option value="ios">IOS</option>
-                <option value="windows">Windows</option>
-                <option value="android">Android</option>
-              </select>
-            </td>
-            <td>
-              <input type="number" name="screensize" id="screensize" placeholder="6" max="100" min="3" step="1" required>
-            </td>
-            <td>
-              <input type="submit" value="Submit" id="submitButton">
-            </td>
-            <td>
-              <input type="button" name="reset" value="Reset" id="resetButton" onclick="thisFormReset()">
-              <!---activates link: https://wt.ops.labs.vu.nl/api22/779519fb/reset-->
-            </td>
-          </tr>
-         </table>
-       </div>
          <script>
          //Task 4
          $("form").on("submit", function (e) {
@@ -204,13 +118,15 @@
                   $('#message').html("<h2>Form Submitted!</h2>")
                   .append("<p>Phone is being added to server</p>")
                   .hide()
-                  /*.fadeIn(1500, function() {
-                    $('#message').append("<img id='checkmark' src='images/check.png' />");
-                  });*/
                 }
               });
               e.preventDefault();
         });
+
+        function refreshTable(){
+          var table = document.getElementById("phones");
+          table.refresh();
+        }
          // Task 3
          fetch('https://wt.ops.labs.vu.nl/api22/779519fb') // GET request on URL
             .then(function (response) {
@@ -250,7 +166,9 @@
               return !!pattern.test(str);
            }
          </script>
-         <div id="data-table">
+         <div id="data-form">
+         <form action="" onsubmit="return FUNCTION()" id="my-form" method="post">
+          <div id="data-table">
            <table id="phones" class="table">
             <thead>
              <tr>
@@ -262,8 +180,44 @@
                <th onclick="sortTable(5)">Screensize</th>
              </tr>
            </thead>
+           <tbody>
+             <tr>
+               <td><pre>For Employees ONLY!        <em>Add new phone to server:</em></pre></td>
+             </tr>
+             <!--- Form to be filled in -->
+             <tr>
+               <td>
+                 <input type="url" name="image" id="image" placeholder="Paste Image Link Here" required>
+               </td>
+               <td>
+                 <input type="text" name="model" id="model" placeholder="Ex:IPhone 11" required>
+               </td>
+               <td>
+                 <input type="text" name="brand" id="brand" placeholder="Ex: Apple" required>
+               </td>
+               <td>
+                 <select name="os" id="os" placeholder="OS" required>
+                   <option value="" hidden>Pick an <abbr title="Operating System">OS</abbr></option>
+                   <option value="ios">IOS</option>
+                   <option value="windows">Windows</option>
+                   <option value="android">Android</option>
+                 </select>
+               </td>
+               <td>
+                 <input type="number" name="screensize" id="screensize" placeholder="6" max="100" min="3" step="1" required>
+               </td>
+               <td>
+                 <input type="submit" value="Submit" id="submitButton" onclick="refreshTable()">
+               </td>
+               <td>
+                 <input type="button" name="reset" value="Reset" id="resetButton" onclick="thisFormReset()">
+                 <!---activates link: https://wt.ops.labs.vu.nl/api22/779519fb/reset-->
+               </td>
+             </tr>
+           </tbody>
            </table>
          </div>
+       </div>
         <br>
         <br>
       </section>
