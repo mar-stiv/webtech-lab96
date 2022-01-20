@@ -54,8 +54,8 @@
       $.ajax({
         url:https://wt.ops.labs.vu.nl/api22/779519fb/reset, method: "GET"
       })
-      
     }
+
     //Task 4 - Single page form submit
 
 
@@ -149,9 +149,9 @@
             <thead>
              <tr>
                <th onclick="sortTable(1)">ID</th>
-               <th onclick="sortTable(2)">OS</th>
+               <th onclick="sortTable(2)">Brand</th>
                <th onclick="sortTable(3)">Model</th>
-               <th onclick="sortTable(4)">Brand</th>
+               <th onclick="sortTable(4)">OS</th>
                <th class="no-sort">Image</th>
                <th onclick="sortTable(5)">Screensize</th>
              </tr>
@@ -161,13 +161,10 @@
              <tr>
                <td><pre>For Employees ONLY!        <em>Add new phone to server:</em></pre></td>
                <td>
-                 <input type="url" name="image" id="image" placeholder="Paste Image Link Here" required>
+                 <input type="text" name="brand" id="brand" placeholder="Ex: Apple" required>
                </td>
                <td>
                  <input type="text" name="model" id="model" placeholder="Ex:IPhone 11" required>
-               </td>
-               <td>
-                 <input type="text" name="brand" id="brand" placeholder="Ex: Apple" required>
                </td>
                <td>
                  <select name="os" id="os" required>
@@ -176,6 +173,9 @@
                    <option value="windows">Windows</option>
                    <option value="android">Android</option>
                  </select>
+               </td>
+               <td>
+                 <input type="url" name="image" id="image" placeholder="Paste Image Link Here" required>
                </td>
                <td>
                  <input type="number" name="screensize" id="screensize" placeholder="6" max="100" min="3" step="1" required>

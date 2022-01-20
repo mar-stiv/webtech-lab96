@@ -45,18 +45,11 @@ function sortTable(n){
 //Sorting for Dynamic table
 
 // Task 2 - Reset button
-function this.form.reset() {
-  window.location.replace("https://wt.ops.labs.vu.nl/api22/779519fb/reset");
-}
-/*
-or
 function thisFormReset() {
-  $("#resetButton").click(function () {
-    $.get("https://wt.ops.labs.vu.nl/api22/779519fb/reset", function (data, status) {
-        alert("Data: " + data + "\nStatus: " + status)
-      }) }
-  }
-*/
+  $.ajax({
+    url:https://wt.ops.labs.vu.nl/api22/779519fb/reset, method: "GET"
+  })
+}
 
 //Task 3 - Dynamic table content
 fetch('https://wt.ops.labs.vu.nl/api22/779519fb') // GET request on URL
@@ -68,17 +61,18 @@ fetch('https://wt.ops.labs.vu.nl/api22/779519fb') // GET request on URL
    })
 
    function renderDataIntoTable(phones){ // finds table in DOM to append new rows to
-     const mytable = document.getElementById("phones");
-     let mybody = document.createElement("tbody");
+     const mytable = document.getElementById("phones"); // finds table
+     let mybody = document.createElement("tbody"); // creates tbody
       phones.forEach(phone =>{
         let newRow = document.createElement("tr"); // for each item, create new tr element
         Object.values(phone).forEach((value) =>{
           let cell = document.createElement("td"); // adds each value as a td element
+          cell.classList.add("have-border"); // adds class for css functionality
           if(isValidURL(value)){
             value = "<img src= \"" + value + "\" width=\"154\" height=\"192\"></a>";
-            cell.innerHTML = value;
+            cell.innerHTML = value; // places image
           }else{
-            cell.innerText = value;
+            cell.innerText = value; // places text
           }
           newRow.appendChild(cell);
         })
@@ -97,3 +91,19 @@ fetch('https://wt.ops.labs.vu.nl/api22/779519fb') // GET request on URL
   } // code credit: https://reactgo.com/javascript-check-string-url/
 
 //Task 4 - Single page form submit
+$( "form" ).on( "submit", function(e) {
+     var dataString = $(this).serialize();
+
+     $.ajax({
+       type: "POST",
+       url: "https://wt.ops.labs.vu.nl/api22/779519fb",
+       data: dataString,
+       success: function () {
+         $("#data-form").html("<div id='message'></div>");
+         $("#message").html("<h2>Form Submitted!</h2>")
+           .append("<p>Phone will be added to server.</p>")
+           //.hide()
+       }
+     });
+     e.preventDefault();
+   });// code credit: https://code.tutsplus.com/tutorials/submit-a-form-without-page-refresh-using-jquery--net-59
