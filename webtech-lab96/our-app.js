@@ -47,7 +47,7 @@ function this.form.reset() {
 /*
 or
 function thisFormReset() {
-  $("#reset").click(function () {
+  $("#resetButton").click(function () {
     $.get("https://wt.ops.labs.vu.nl/api22/779519fb/reset", function (data, status) {
         alert("Data: " + data + "\nStatus: " + status)
       }) }
@@ -55,49 +55,40 @@ function thisFormReset() {
 */
 
 //Task 3
-
-// functional grid
-const columnDefs = [ // create object of properties
-             { field: 'ID' },
-             { field: 'Model' },
-             { field: 'Brand' },
-             { field: 'OS' },
-             { field: 'Screensize' },
-         ];
-
-const gridOptions = { // configures grid
-             columnDefs: columnDefs, // assigned array of columns
-             onGridReady: (event) =>{renderDataInTheTable(event.api)} // calls function when grid has been created
-         };
-
-const GridDiv = document.getElementById('data-table');
-new agGrid.Grid(GridDiv, gridOptions); // new grid for div
-
 fetch('https://wt.ops.labs.vu.nl/api22/779519fb') // GET request on URL
    .then(function (response) {
        return response.json(); // return array containing all phone items
-   }).then(function (data) {
-        api.setRowData(data);
-        api.sizeColumnsToFit();
+   }).then(function (apiJsonData) {
+       console.log(apiJsonData); // write to console
+       renderDataIntoTable(apiJsonData);
    })
 
-
- function renderDataIntoTable(api){ // finds table in DOM to append new rows to
-   fetch('https://wt.ops.labs.vu.nl/api22/779519fb')
-              .then(function (response) {
-                  return response.json();
-              }).then(function (data) {
-                  api.setRowData(data);
-                  api.sizeColumnsToFit();
-              })
- }
-
- function isValidURL(str){ // validate URL
-   var regex = /(?:https?):\/\/(\w+:?\w*)?(\S+)(:\d+)?(\/|\/([\w#!:.?+=&%!\-\/]))?/;
-   if(!regex .test(str)) {
-     alert("Please enter valid URL.");
-     return false;
-   } else {
-     return true;
+   function renderDataIntoTable(phones){ // finds table in DOM to append new rows to
+     const mytable = document.getElementById("phones");
+      phones.forEach(phone =>{
+        let newRow = document.createElement("tr"); // for each item, create new tr element
+        Object.values(phone).forEach((value) =>{
+          let cell = document.createElement("td"); // adds each value as a td element
+          if(isValidURL(value)){
+            value = "<img src= \"" + value + "\" width=\"154\" height=\"192\"></a>";
+            cell.innerHTML = value;
+          }else{
+            cell.innerText = value;
+          }
+          newRow.appendChild(cell);
+        })
+        mytable.appendChild(newRow);
+      });
   }
- }
+
+  function isValidURL(str){ // validate URL
+    const pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
+     '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
+     '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
+     '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
+     '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
+     '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
+     return !!pattern.test(str);
+  } // code credit: https://reactgo.com/javascript-check-string-url/
+
+//Task 4
