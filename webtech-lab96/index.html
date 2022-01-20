@@ -187,6 +187,7 @@
           </tr>
          </table>
          <script>
+
          // Task 3
          fetch('https://wt.ops.labs.vu.nl/api22/779519fb') // GET request on URL
             .then(function (response) {
@@ -198,6 +199,7 @@
 
             function renderDataIntoTable(phones){ // finds table in DOM to append new rows to
               const mytable = document.getElementById("phones");
+              let mybody = document.createElement("tbody");
                phones.forEach(phone =>{
                  let newRow = document.createElement("tr"); // for each item, create new tr element
                  Object.values(phone).forEach((value) =>{
@@ -226,14 +228,16 @@
          </script>
          <div id="data-table">
            <table id="phones" class="table">
+            <thead>
              <tr>
-               <th>ID</th>
-               <th>OS</th>
-               <th>Model</th>
-               <th>Brand</th>
-               <th>Image</th>
-               <th>Screensize</th>
+               <th class="sort-asc">ID</th>
+               <th class="sort-asc">OS</th>
+               <th class="sort-asc">Model</th>
+               <th class="sort-asc">Brand</th>
+               <th class="no-sort">Image</th>
+               <th class="sort-asc">Screensize</th>
              </tr>
+           </thead>
            </table>
          </div>
         <br>

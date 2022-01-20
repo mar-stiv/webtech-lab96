@@ -1,4 +1,6 @@
-// Task 1
+// Task 1 - Sortable tables
+
+//Code for Static Table
 function sortTable(n){
   var table, rows, switching, el1, el2, shouldSwitch, direction, switchCount = 0;
   table = document.getElementsById("myTable");
@@ -40,7 +42,9 @@ function sortTable(n){
   }
 }
 
-// Task 2
+//Sorting for Dynamic table
+
+// Task 2 - Reset button
 function this.form.reset() {
   window.location.replace("https://wt.ops.labs.vu.nl/api22/779519fb/reset");
 }
@@ -54,7 +58,7 @@ function thisFormReset() {
   }
 */
 
-//Task 3
+//Task 3 - Dynamic table content
 fetch('https://wt.ops.labs.vu.nl/api22/779519fb') // GET request on URL
    .then(function (response) {
        return response.json(); // return array containing all phone items
@@ -65,6 +69,7 @@ fetch('https://wt.ops.labs.vu.nl/api22/779519fb') // GET request on URL
 
    function renderDataIntoTable(phones){ // finds table in DOM to append new rows to
      const mytable = document.getElementById("phones");
+     let mybody = document.createElement("tbody");
       phones.forEach(phone =>{
         let newRow = document.createElement("tr"); // for each item, create new tr element
         Object.values(phone).forEach((value) =>{
@@ -91,4 +96,4 @@ fetch('https://wt.ops.labs.vu.nl/api22/779519fb') // GET request on URL
      return !!pattern.test(str);
   } // code credit: https://reactgo.com/javascript-check-string-url/
 
-//Task 4
+//Task 4 - Single page form submit

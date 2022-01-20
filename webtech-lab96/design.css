@@ -306,3 +306,6 @@ pre{
       }
     }
 }
+
+@media print {
+      orphans: 4;widows: 2;}
