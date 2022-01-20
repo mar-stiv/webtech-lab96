@@ -102,7 +102,8 @@
 <!--- Top 5 Phones -->
     <section class="top5" id="top5">
       <br><p>Check out our top 5 mobile phones!</p>
-      <form action="https://wt.ops.labs.vu.nl/api22/779519fb" method="post">
+      <div id="data-form">
+      <form action="" onsubmit="return FUNCTION()"id="my-form" method="post">
         <table id="myTable">
           <tr>
             <th>Image</th>
@@ -186,8 +187,30 @@
             </td>
           </tr>
          </table>
+       </div>
          <script>
+         //Task 4
+         $("form").on("submit", function (e) {
+            var dataString = $(this).serialize();
 
+            // altert(dataString); return false;
+
+            $.ajax({ // process values in dataString
+              type: "POST",
+              url: "https://wt.ops.labs.vu.nl/api22/779519fb",
+              data: dataString,
+              success: function () {
+                $('#data-form').html("<div id='message'></div>"); // display message back to user
+                  $('#message').html("<h2>Form Submitted!</h2>")
+                  .append("<p>Phone is being added to server</p>")
+                  .hide()
+                  /*.fadeIn(1500, function() {
+                    $('#message').append("<img id='checkmark' src='images/check.png' />");
+                  });*/
+                }
+              });
+              e.preventDefault();
+        });
          // Task 3
          fetch('https://wt.ops.labs.vu.nl/api22/779519fb') // GET request on URL
             .then(function (response) {
@@ -198,17 +221,18 @@
             })
 
             function renderDataIntoTable(phones){ // finds table in DOM to append new rows to
-              const mytable = document.getElementById("phones");
-              let mybody = document.createElement("tbody");
+              const mytable = document.getElementById("phones"); // finds table
+              let mybody = document.createElement("tbody"); // creates tbody
                phones.forEach(phone =>{
                  let newRow = document.createElement("tr"); // for each item, create new tr element
                  Object.values(phone).forEach((value) =>{
                    let cell = document.createElement("td"); // adds each value as a td element
+                   cell.classList.add("have-border"); // adds class for css functionality
                    if(isValidURL(value)){
                      value = "<img src= \"" + value + "\" width=\"154\" height=\"192\"></a>";
-                     cell.innerHTML = value;
+                     cell.innerHTML = value; // places image
                    }else{
-                     cell.innerText = value;
+                     cell.innerText = value; // places text
                    }
                    newRow.appendChild(cell);
                  })
@@ -230,12 +254,12 @@
            <table id="phones" class="table">
             <thead>
              <tr>
-               <th class="sort-asc">ID</th>
-               <th class="sort-asc">OS</th>
-               <th class="sort-asc">Model</th>
-               <th class="sort-asc">Brand</th>
+               <th onclick="sortTable(1)">ID</th>
+               <th onclick="sortTable(2)">OS</th>
+               <th onclick="sortTable(3)">Model</th>
+               <th onclick="sortTable(4)">Brand</th>
                <th class="no-sort">Image</th>
-               <th class="sort-asc">Screensize</th>
+               <th onclick="sortTable(5)">Screensize</th>
              </tr>
            </thead>
            </table>
