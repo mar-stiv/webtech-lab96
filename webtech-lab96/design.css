@@ -311,4 +311,6 @@ pre{
 }
 
 @media print {
-      orphans: 4;widows: 2;}
+  orphans: 4;
+  widows: 2;
+}

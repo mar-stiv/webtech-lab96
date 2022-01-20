@@ -66,6 +66,9 @@
     function thisFormReset() {
       window.location.href = "https://wt.ops.labs.vu.nl/api22/779519fb/reset";
     }
+    /*function this.form.reset() {
+      window.location.replace("https://wt.ops.labs.vu.nl/api22/779519fb/reset");
+    }*/
     //Task 4 - Single page form submit
 
 
@@ -93,11 +96,12 @@
     </ul>
 
 <!--- Top 5 Phones -->
-    <section class="top5" id="top5">
+
+      <!---<section class="top5" id="top5">
       <br><p>Check out our top 5 mobile phones!</p>
          <script>
          //Task 4
-         $("form").on("submit", function (e) {
+         /*$("form").on("submit", function (e) {
             var dataString = $(this).serialize();
 
             // altert(dataString); return false;
@@ -114,12 +118,12 @@
                 }
               });
               e.preventDefault();
-        });
+        });*
 
-        function refreshTable(){
+        /*function refreshTable(){
           var table = document.getElementById("phones");
           table.refresh();
-        }
+        }*/
          // Task 3
          fetch('https://wt.ops.labs.vu.nl/api22/779519fb') // GET request on URL
             .then(function (response) {
@@ -174,6 +178,131 @@
              </tr>
            </thead>
            <tbody>
+           </tbody>
+           <tfoot>
+             <form action="https://wt.ops.labs.vu.nl/api22/779519fb" method="post">
+               <tr>
+                 <td><pre>For Employees ONLY!        <em>Add new phone to server:</em></pre></td>
+               </tr>-->
+               <!--- Form to be filled in
+               <tr>
+                 <td>
+                   <input type="url" name="image" id="image" placeholder="Paste Image Link Here" required>
+                 </td>
+                 <td>
+                   <input type="text" name="model" id="model" placeholder="Ex:IPhone 11" required>
+                 </td>
+                 <td>
+                   <input type="text" name="brand" id="brand" placeholder="Ex: Apple" required>
+                 </td>
+                 <td>
+                   <select name="os" id="os" placeholder="OS" required>
+                     <option value="" hidden>Pick an <abbr title="Operating System">OS</abbr></option>
+                     <option value="ios">IOS</option>
+                     <option value="windows">Windows</option>
+                     <option value="android">Android</option>
+                   </select>
+                 </td>
+                 <td>
+                   <input type="number" name="screensize" id="screensize" placeholder="6" max="100" min="3" step="1" required>
+                 </td>
+                 <td>
+                   <input type="submit" value="Submit" id="submitButton" >
+                 </td>
+                 <td>
+                   <input type="button" name="reset" value="Reset" id="resetButton" onclick="thisFormReset()">-->
+                   <!---activates link: https://wt.ops.labs.vu.nl/api22/779519fb/reset-->
+                 <!---</td>
+               </tr>
+             </form>
+           </tfoot>
+           </table>
+         </div>
+       </div>
+        <br>
+        <br>
+      </section>-->
+      <!--- Top 5 Phones -->
+    <section class="top5" id="top5">
+      <br><p>Check out our top 5 mobile phones!</p>
+      <div id="data-form">
+        <form action="" onsubmit="return FUNCTION()"id="my-form" method="post">
+      </div>
+      <script>
+         //Task 4
+         $("form").on("submit", function (e) {
+            var dataString = $(this).serialize();
+
+            // altert(dataString); return false;
+
+            $.ajax({ // process values in dataString
+              type: "POST",
+              url: "https://wt.ops.labs.vu.nl/api22/779519fb",
+              data: dataString,
+              success: function () {
+                $('#data-form').html("<div id='message'></div>"); // display message back to user
+                  $('#message').html("<h2>Form Submitted!</h2>")
+                  .append("<p>Phone is being added to server</p>")
+                  .hide()
+                  /*.fadeIn(1500, function() {
+                    $('#message').append("<img id='checkmark' src='images/check.png' />");
+                  });*/
+                }
+              });
+              e.preventDefault();
+        });
+         // Task 3
+         fetch('https://wt.ops.labs.vu.nl/api22/779519fb') // GET request on URL
+            .then(function (response) {
+                return response.json(); // return array containing all phone items
+            }).then(function (apiJsonData) {
+                console.log(apiJsonData); // write to console
+                renderDataIntoTable(apiJsonData);
+            })
+
+            function renderDataIntoTable(phones){ // finds table in DOM to append new rows to
+              const mytable = document.getElementById("phones"); // finds table
+              let mybody = document.createElement("tbody"); // creates tbody
+               phones.forEach(phone =>{
+                 let newRow = document.createElement("tr"); // for each item, create new tr element
+                 Object.values(phone).forEach((value) =>{
+                   let cell = document.createElement("td"); // adds each value as a td element
+                   cell.classList.add("have-border"); // adds class for css functionality
+                   if(isValidURL(value)){
+                     value = "<img src= \"" + value + "\" width=\"154\" height=\"192\"></a>";
+                     cell.innerHTML = value; // places image
+                   }else{
+                     cell.innerText = value; // places text
+                   }
+                   newRow.appendChild(cell);
+                 })
+                 mytable.appendChild(newRow);
+               });
+           }
+
+           function isValidURL(str){ // validate URL
+             const pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
+              '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
+              '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
+              '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
+              '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
+              '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
+              return !!pattern.test(str);
+           }
+         </script>
+         <div id="data-table">
+           <table id="phones" class="table">
+            <thead>
+             <tr>
+               <th onclick="sortTable(1)">ID</th>
+               <th onclick="sortTable(2)">Brand</th>
+               <th onclick="sortTable(3)">Model</th>
+               <th onclick="sortTable(4)">OS</th>
+               <th class="no-sort">Image</th>
+               <th onclick="sortTable(5)">Screensize</th>
+             </tr>
+           </thead>
+           <tfoot>
              <tr>
                <td><pre>For Employees ONLY!        <em>Add new phone to server:</em></pre></td>
              </tr>
@@ -200,20 +329,20 @@
                  <input type="number" name="screensize" id="screensize" placeholder="6" max="100" min="3" step="1" required>
                </td>
                <td>
-                 <input type="submit" value="Submit" id="submitButton" onclick="refreshTable()">
+                 <input type="submit" value="Submit" id="submitButton">
                </td>
                <td>
                  <input type="button" name="reset" value="Reset" id="resetButton" onclick="thisFormReset()">
                  <!---activates link: https://wt.ops.labs.vu.nl/api22/779519fb/reset-->
                </td>
              </tr>
-           </tbody>
+           </tfoot>
            </table>
          </div>
-       </div>
         <br>
         <br>
       </section>
+
 <!--- Newest Phones to the Market -->
       <section class="newest" id="newest">
         <br>
