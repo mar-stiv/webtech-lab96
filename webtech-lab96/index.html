@@ -9,68 +9,53 @@
   </head>
   <body>
     <script>
-    function sortTable(n) {
-      var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
-      table = document.getElementById("myTable");
+    function sortTable(n){
+      var table, rows, switching, el1, el2, shouldSwitch, direction, switchCount = 0;
+      table = document.getElementsById("phones");
       switching = true;
-      //Set the sorting direction to ascending:
-      dir = "asc";
-      /*Make a loop that will continue until
-      no switching has been done:*/
-      while (switching) {
-        //start by saying: no switching is done:
+      direction = "asc" // ascending directionection to sort
+
+      while(switching){ // loops until no switching can be done
         switching = false;
         rows = table.rows;
-        /*Loop through all table rows (except the
-        first, which contains table headers):*/
-        for (i = 1; i < (rows.length - 2); i++) {
-          //start by saying there should be no switching:
-          shouldSwitch = false;
-          /*Get the two elements you want to compare,
-          one from current row and one from the next:*/
-          x = rows[i].getElementsByTagName("TD")[n];
-          y = rows[i + 1].getElementsByTagName("TD")[n];
-          /*check if the two rows should switch place,
-          based on the direction, asc or desc:*/
-          if (dir == "asc") {
-            if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
-              //if so, mark as a switch and break the loop:
-              shouldSwitch= true;
-              break;
+
+        for(var i=1; i<(rows.length - 2); i++){ // loops through rows from the 2nd
+          shouldSwitch = false; // there should be no switching
+          el1 = rows[i].getElementsByTagName("TD")[n]; // element 1
+          el2 = rows[i+1].getElementsByTagName("TD")[n]; // element 2
+
+          if(direction=="asc"){ // Checks if two rows should switch position
+            if(el1.innerHTML.toLowerCase()>el2.innerHTML.toLowerCase()){ // If el1 is bigger than el2
+                shouldSwitch = true;
+                break;
             }
-          } else if (dir == "desc") {
-            if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
-              //if so, mark as a switch and break the loop:
-              shouldSwitch = true;
-              break;
+          }else if(direction="desc"){
+            if(el1.innerHTML.toLowerCase()<el2.innerHTML.toLowerCase()){ // If el2 is bigger than el1
+                shouldSwitch = true;
+                break;
             }
           }
         }
-        if (shouldSwitch) {
-          /*If a switch has been marked, make the switch
-          and mark that a switch has been done:*/
-          rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+
+        if(shouldSwitch){ // If it is true, make the switch and say it has been done
+          rows[i].parentNode.insertBefore(rows[i+1],rows[i]);
           switching = true;
-          //Each time a switch is done, increase this count by 1:
-          switchcount ++;
-        } else {
-          /*If no switching has been done AND the direction is "asc",
-          set the direction to "desc" and run the while loop again.*/
-          if (switchcount == 0 && dir == "asc") {
-            dir = "desc";
+          switchCount++; // each time a switch is done, increment
+        }else{
+          if(switchCount==0 && direction=="asc"){ // If no switching has been done and the directionection is asc
+            direction = "desc";
             switching = true;
           }
         }
       }
     }
+
     function thisFormReset() {
-      window.location.href = "https://wt.ops.labs.vu.nl/api22/779519fb/reset";
-
-
+      $.ajax({
+        url:https://wt.ops.labs.vu.nl/api22/779519fb/reset, method: "GET"
+      })
+      
     }
-    /*function this.form.reset() {
-      window.location.replace("https://wt.ops.labs.vu.nl/api22/779519fb/reset");
-    }*/
     //Task 4 - Single page form submit
 
 
@@ -100,30 +85,24 @@
 <!--- Top 5 Phones -->
     <section class="top5" id="top5">
       <br><p>Check out our top 5 mobile phones!</p>
-      <div id="data-form">
-        <form action="" onsubmit="return FUNCTION()"id="my-form" method="post">
-      </div>
-      <script>
+         <script>
          //Task 4
-         $("form").on("submit", function (e) {
-            var dataString = $(this).serialize();
+        $( "form" ).on( "submit", function(e) {
+              var dataString = $(this).serialize();
 
-            $.ajax({ // process values in dataString
-              type: "POST",
-              url: "https://wt.ops.labs.vu.nl/api22/779519fb",
-              data: dataString,
-              success: function () {
-                $('#data-form').html("<div id='message'></div>"); // display message back to user
-                  $('#message').html("<h2>Form Submitted!</h2>")
-                  .append("<p>Phone is being added to server</p>")
-                  .hide()
-                  /*.fadeIn(1500, function() {
-                    $('#message').append("<img id='checkmark' src='images/check.png' />");
-                  });*/
+              $.ajax({
+                type: "POST",
+                url: "https://wt.ops.labs.vu.nl/api22/779519fb",
+                data: dataString,
+                success: function () {
+                  $("#data-form").html("<div id='message'></div>");
+                  $("#message").html("<h2>Form Submitted!</h2>")
+                    .append("<p>Phone will be added to server.</p>")
+                    //.hide()
                 }
               });
               e.preventDefault();
-        });
+            });
          // Task 3
          fetch('https://wt.ops.labs.vu.nl/api22/779519fb') // GET request on URL
             .then(function (response) {
@@ -163,24 +142,24 @@
               return !!pattern.test(str);
            }
          </script>
-         <div id="data-table">
+         <div id="data-form">
+         <form action="" id="my-form" method:"post">
+          <div id="data-table">
            <table id="phones" class="table">
             <thead>
              <tr>
                <th onclick="sortTable(1)">ID</th>
-               <th onclick="sortTable(2)">Brand</th>
+               <th onclick="sortTable(2)">OS</th>
                <th onclick="sortTable(3)">Model</th>
-               <th onclick="sortTable(4)">OS</th>
+               <th onclick="sortTable(4)">Brand</th>
                <th class="no-sort">Image</th>
                <th onclick="sortTable(5)">Screensize</th>
              </tr>
-            </thead>
-            <tfoot>
+           </thead>
+           <tbody>
+             <!--- Form to be filled in -->
              <tr>
                <td><pre>For Employees ONLY!        <em>Add new phone to server:</em></pre></td>
-             </tr>
-             <!--- Form to be filled in -->
-
                <td>
                  <input type="url" name="image" id="image" placeholder="Paste Image Link Here" required>
                </td>
@@ -209,13 +188,13 @@
                  <!---activates link: https://wt.ops.labs.vu.nl/api22/779519fb/reset-->
                </td>
              </tr>
-            </tfoot>
+           </tbody>
            </table>
          </div>
+       </div>
         <br>
         <br>
       </section>
-
 <!--- Newest Phones to the Market -->
       <section class="newest" id="newest">
         <br>
