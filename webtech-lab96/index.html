@@ -65,6 +65,8 @@
     }
     function thisFormReset() {
       window.location.href = "https://wt.ops.labs.vu.nl/api22/779519fb/reset";
+
+
     }
     /*function this.form.reset() {
       window.location.replace("https://wt.ops.labs.vu.nl/api22/779519fb/reset");
@@ -105,8 +107,6 @@
          //Task 4
          $("form").on("submit", function (e) {
             var dataString = $(this).serialize();
-
-            // altert(dataString); return false;
 
             $.ajax({ // process values in dataString
               type: "POST",
@@ -174,13 +174,14 @@
                <th class="no-sort">Image</th>
                <th onclick="sortTable(5)">Screensize</th>
              </tr>
-           </thead>
-           <tfoot>
+            </thead>
+            <tfoot>
              <tr>
                <td><pre>For Employees ONLY!        <em>Add new phone to server:</em></pre></td>
              </tr>
              <!--- Form to be filled in -->
              <tr>
+               <td><pre>For Employees ONLY!        <em>Add new phone to server:</em></pre></td>
                <td>
                  <input type="url" name="image" id="image" placeholder="Paste Image Link Here" required>
                </td>
@@ -191,8 +192,8 @@
                  <input type="text" name="brand" id="brand" placeholder="Ex: Apple" required>
                </td>
                <td>
-                 <select name="os" id="os" placeholder="OS" required>
-                   <option value="" hidden>Pick an <abbr title="Operating System">OS</abbr></option>
+                 <select name="os" id="os" required>
+                   <option value="" hidden>Pick an OS</option>
                    <option value="ios">IOS</option>
                    <option value="windows">Windows</option>
                    <option value="android">Android</option>
@@ -209,7 +210,7 @@
                  <!---activates link: https://wt.ops.labs.vu.nl/api22/779519fb/reset-->
                </td>
              </tr>
-           </tfoot>
+            </tfoot>
            </table>
          </div>
         <br>
