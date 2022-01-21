@@ -10,7 +10,7 @@
   <body>
     <script>
     function sortTable(n){
-      if(typeof n == 'number'{
+      if(typeof n == 'number'){
           var table, rows, switching, el1, el2, shouldSwitch, direction, switchCount = 0;
           table = document.getElementsById("phones");
           switching = true;
@@ -53,15 +53,13 @@
      }
 
     // Task 2 - Reset Button
-    function thisFormReset() {
+    $('#resetButton').click(function(){
       $.ajax({
         url:"https://wt.ops.labs.vu.nl/api22/779519fb/reset",
         method: "GET"
       });
-
-    }
-
-    //Task 4 - Single page form submit
+      getTable();
+    });
     </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> <!--- include the jQuery library -->
 
@@ -90,12 +88,19 @@
   <section class="top5" id="top5">
     <br><p>Check out our top 5 mobile phones!</p>
     <div id="data-form">
-      <form action="" onsubmit="return FUNCTION()"id="my-form" method="post">
+      <form action="" id="my-form" method="post">
+      <!---onsubmit="return FUNCTION()-->
     </div>
     <script>
-       //Task 4
-       $("form").on("submit", function (e) {
+$(function(){
+  getTable();
+});
+
+// Task 4
+$("form").on("submit", function (e) {
           var dataString = $(this).serialize();
+
+          // altert(dataString); return false;
 
           $.ajax({ // process values in dataString
             type: "POST",
@@ -108,53 +113,61 @@
                 .hide()
               }
             });
-
+            getTable();
+            $('input').not(".button").val("");
             e.preventDefault();
+       });
+
+
+
+
+//Task 3
+function getTable(){
+  $.ajax({
+     type: "GET",
+     url:"https://wt.ops.labs.vu.nl/api22/779519fb",
+     dataType: "json"
+   })
+   .done(function(data){
+     console.log(data); // write to console
+     renderDataIntoTable(data);
+   });
+
+   function renderDataIntoTable(phones){ // finds table in DOM to append new rows to
+     const $mytable = $("#phones"); // finds table
+     $thead = $mytable.find("thead");
+     $("#phones tbody").remove();
+     $thead.append("<tbody></tbody>") // creates tbody
+      phones.forEach(phone =>{
+        $tbody = $mytable.find("tbody");
+        $tbody.append("<tr></tr>");
+        $newRow =  $tbody.find("tr");// for each item, create new tr element
+        Object.values(phone).forEach((value) =>{
+          $newRow.append("<td></td>");
+          $cell = $newRow.find("td").last(); // adds each value as a td element
+          $cell.addClass("have-border"); // adds class for css functionality
+          if(isValidURL(value)){
+            value = "<img src= \"" + value + "\" width=\"154\" height=\"192\"></a>";
+            $cell.html(value); // places image
+          }else{
+            $cell.text(value); // places text
+          }
+          $newRow.append($cell);
+        })
+        $mytable.append($newRow);
       });
-       // Task 3
-         $.ajax({
-            type: "GET",
-            url:"https://wt.ops.labs.vu.nl/api22/779519fb",
-            dataType: "json"
-          })
-          .done(function(data){
-            console.log(data); // write to console
-            renderDataIntoTable(data);
-          });
+  }
 
-          function renderDataIntoTable(phones){ // finds table in DOM to append new rows to
-            const $mytable = $("#phones"); // finds table
-            $thead = $mytable.find("thead");
-            $thead.append("<tbody></tbody>") // creates tbody
-             phones.forEach(phone =>{
-               $tbody = $mytable.find("tbody");
-               $tbody.append("<tr></tr>");
-               $newRow =  $tbody.find("tr");// for each item, create new tr element
-               Object.values(phone).forEach((value) =>{
-                 $newRow.append("<td></td>");
-                 $cell = $newRow.find("td").last(); // adds each value as a td element
-                 $cell.addClass("have-border"); // adds class for css functionality
-                 if(isValidURL(value)){
-                   value = "<img src= \"" + value + "\" width=\"154\" height=\"192\"></a>";
-                   $cell.html(value); // places image
-                 }else{
-                   $cell.text(value); // places text
-                 }
-                 $newRow.append($cell);
-               })
-               $mytable.append($newRow);
-             });
-         }
-
-         function isValidURL(str){ // validate URL
-           const pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
-            '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
-            '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
-            '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
-            '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
-            '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
-            return !!pattern.test(str);
-         }
+  function isValidURL(str){ // validate URL
+    const pattern = new RegExp('^(https?:\\/\\/)?'+ // protocol
+     '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // domain name
+     '((\\d{1,3}\\.){3}\\d{1,3}))'+ // OR ip (v4) address
+     '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // port and path
+     '(\\?[;&a-z\\d%_.~+=-]*)?'+ // query string
+     '(\\#[-a-z\\d_]*)?$','i'); // fragment locator
+     return !!pattern.test(str);
+  }
+}
 
          //Sorting for Dyanmic table
          $('.table th').click(function(){
@@ -203,10 +216,10 @@
                <input type="number" name="screensize" id="screensize" placeholder="6" max="100" min="3" step="1" required>
              </td>
              <td>
-               <input type="button" value="Submit" id="submitButton">
+               <input type="submit" value="Submit" id="submitButton" class="button">
              </td>
              <td>
-               <input type="button" name="reset" value="Reset" id="resetButton" onclick="thisFormReset()">
+               <input type="button" name="reset" value="Reset" id="resetButton" class="button">
                <!---activates link: https://wt.ops.labs.vu.nl/api22/779519fb/reset-->
              </td>
            </tr>
