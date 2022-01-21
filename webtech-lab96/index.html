@@ -8,6 +8,7 @@
     <link rel="icon" href="https://media.discordapp.net/attachments/887340040496238652/931255515923771392/logo.png">
   </head>
   <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> <!--- include the jQuery library - loads after page loads-->
     <script>
     function sortTable(n){
       if(typeof n == 'number'){
@@ -52,16 +53,7 @@
         }
      }
 
-    // Task 2 - Reset Button
-    $('#resetButton').click(function(){
-      $.ajax({
-        url:"https://wt.ops.labs.vu.nl/api22/779519fb/reset",
-        method: "GET"
-      });
-      getTable();
-    });
     </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> <!--- include the jQuery library -->
 
     <div class="header">
       <h1>
@@ -94,6 +86,16 @@
     <script>
 $(function(){
   getTable();
+
+  // Task 2 - Reset Button
+  $('#resetButton').click(function(){
+    console.log("hi");
+    $.ajax({
+      url:"https://wt.ops.labs.vu.nl/api22/779519fb/reset",
+      method: "GET"
+    });
+    getTable(); // Sometimes the server doesn't reload the table fast enough so you need to wait until the server is done resetting
+  });
 });
 
 // Task 4
@@ -107,7 +109,7 @@ $("form").on("submit", function (e) {
             url: "https://wt.ops.labs.vu.nl/api22/779519fb",
             data: dataString,
             success: function () {
-              $('#data-form').html("<div id='message'></div>"); // display message back to user
+              $('#my-form').html("<div id='message'></div>"); // display message back to user
                 $('#message').html("<h2>Form Submitted!</h2>")
                 .append("<p>Phone is being added to server</p>")
                 .hide()
@@ -136,8 +138,7 @@ function getTable(){
    function renderDataIntoTable(phones){ // finds table in DOM to append new rows to
      const $mytable = $("#phones"); // finds table
      $thead = $mytable.find("thead");
-     $("#phones tbody").remove();
-     $thead.append("<tbody></tbody>") // creates tbody
+     $("tbody tr").remove(); // removes previous rows (if it finds one)
       phones.forEach(phone =>{
         $tbody = $mytable.find("tbody");
         $tbody.append("<tr></tr>");
@@ -152,9 +153,9 @@ function getTable(){
           }else{
             $cell.text(value); // places text
           }
-          $newRow.append($cell);
+          //$newRow.append($cell);
         })
-        $mytable.append($newRow);
+        //$mytable.append($newRow);
       });
   }
 
@@ -189,6 +190,8 @@ function getTable(){
              <th id="5">Screensize</th>
            </tr>
          </thead>
+         <tbody>
+         </tbody>
          <tfoot>
            <tr>
              <td><pre>For Employees ONLY!        <em>Add new phone to server:</em></pre></td>
