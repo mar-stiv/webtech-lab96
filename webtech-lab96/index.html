@@ -10,7 +10,7 @@
   <body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> <!--- include the jQuery library - loads after page loads-->
     <script>
-    function sortTable(n){
+    function sortTable1(n){
       if(typeof n == 'number'){
           var table, rows, switching, el1, el2, shouldSwitch, direction, switchCount = 0;
           table = document.getElementsById("phones");
@@ -96,8 +96,77 @@ $(function(){
     });
     getTable(); // Sometimes the server doesn't reload the table fast enough so you need to wait until the server is done resetting
   });
-});
 
+// Clicking on the Header (part of Task 1)
+  $("th").not("#no-sort").click(function(){
+      sortTable2($(this).attr('id'));
+      console.log($(this).attr('id'));
+
+
+      function sortTable2(n) {
+                var table;
+                table = document.getElementById("phones");
+                var rows, i, x, y, count = 0;
+                var switching = true;
+
+                // Order is set as ascending
+                var direction = "ascending";
+
+                // Run loop until no switching is needed
+                while (switching) {
+                  console.log("in da while loop");
+                    switching = false;
+                    var rows = table.rows;
+
+                    //Loop to go through all rows
+                    for (i = 1; i < (rows.length - 1); i++) {
+                        var Switch = false;
+
+                        // Fetch 2 elements that need to be compared
+                        x = rows[i].getElementsByTagName("TD")[n];
+                        console.log(x);
+                        y = rows[i + 1].getElementsByTagName("TD")[n];
+                        console.log(y);
+
+                        // Check the direction of order
+                        if (direction == "ascending") {
+
+                            // Check if 2 rows need to be switched
+                            if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase())
+                                {
+                                // If yes, mark Switch as needed and break loop
+                                Switch = true;
+                                break;
+                            }
+                        } else if (direction == "descending") {
+
+                            // Check direction
+                            if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase())
+                                {
+                                // If yes, mark Switch as needed and break loop
+                                Switch = true;
+                                break;
+                            }
+                        }
+                    }
+                    if (Switch) {
+                        // Function to switch rows and mark switch as completed
+                        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                        switching = true;
+
+                        // Increase count for each switch
+                        count++;
+                    } else {
+                        // Run while loop again for descending order
+                        if (count == 0 && direction == "ascending") {
+                            direction = "descending";
+                            switching = true;
+                        }
+                    }
+                }
+            }
+    });
+});
 // Task 4
 $("form").on("submit", function (e) {
           var dataString = $(this).serialize();
@@ -144,18 +213,18 @@ function getTable(){
         $tbody.append("<tr></tr>");
         $newRow =  $tbody.find("tr");// for each item, create new tr element
         Object.values(phone).forEach((value) =>{
-          $newRow.append("<td></td>");
-          $cell = $newRow.find("td").last(); // adds each value as a td element
-          $cell.addClass("have-border"); // adds class for css functionality
-          if(isValidURL(value)){
-            value = "<img src= \"" + value + "\" width=\"154\" height=\"192\"></a>";
-            $cell.html(value); // places image
-          }else{
-            $cell.text(value); // places text
+          if(phone.id != value){
+            $newRow.append("<td></td>");
+            $cell = $newRow.find("td").last(); // adds each value as a td element
+            $cell.addClass("have-border"); // adds class for css functionality
+            if(isValidURL(value)){
+              value = "<img src= \"" + value + "\" width=\"154\" height=\"192\"></a>";
+              $cell.html(value); // places image
+            }else{
+              $cell.text(value); // places text
+            }
           }
-          //$newRow.append($cell);
         })
-        //$mytable.append($newRow);
       });
   }
 
@@ -169,25 +238,16 @@ function getTable(){
      return !!pattern.test(str);
   }
 }
-
-         //Sorting for Dyanmic table
-         $('.table th').click(function(){
-           id = this.id;
-           sortTable(id); // passes the id of the current element
-           alert("Sorting table with id" + id);
-         });
-
        </script>
        <div id="data-table">
          <table id="phones" class="table">
           <thead>
            <tr>
-             <th id="1">ID</th>
-             <th id="2">Brand</th>
-             <th id="3">Model</th>
-             <th id="4">OS</th>
+             <th id="0">Brand</th>
+             <th id="1">Model</th>
+             <th id="2">OS</th>
              <th id="no-sort">Image</th>
-             <th id="5">Screensize</th>
+             <th id="4">Screensize</th>
            </tr>
          </thead>
          <tbody>
