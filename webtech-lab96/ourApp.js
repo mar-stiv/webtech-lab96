@@ -58,7 +58,7 @@ $(function(){ // when page is loaded
   });
 
 // Task 1 - Sorting Dynamic Table
-  $("th").not("#no-sort").click(function()
+  $("th").not("#no-sort").click(function(){
       sortTable2($(this).attr('id'));
       console.log($(this).attr('id'));
 
