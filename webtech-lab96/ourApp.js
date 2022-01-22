@@ -47,6 +47,26 @@ function sortTable(n){
 $(function(){ // when page is loaded
   getTable(); // renders table in place
 
+// Task 4 - Single page form submit
+  $("form").on("submit", function (e) {
+            var dataString = $(this).serialize();
+
+            $.ajax({ // process values in dataString
+              type: "POST",
+              url: "https://wt.ops.labs.vu.nl/api22/779519fb",
+              data: dataString,
+              success: function () {
+                $('#data-form').html("<div id='message'></div>"); // display message back to user
+                  $('#message').html("<h2>Form Submitted!</h2>")
+                  .append("<p>Phone is being added to server</p>")
+                  .hide()
+                }
+              });
+              getTable(); // request may take a minute
+              $('input').not(".button").val("");
+              e.preventDefault();
+         });
+
 // Task 2 - Reset Button
   $('#resetButton').click(function(){
     console.log("hi");
@@ -173,22 +193,3 @@ function getTable(){
      return !!pattern.test(str);
   }
 }
-
-
-//Task 4 - Single page form submit
-$( "form" ).on( "submit", function(e) {
-     var dataString = $(this).serialize();
-
-     $.ajax({
-       type: "POST",
-       url: "https://wt.ops.labs.vu.nl/api22/779519fb",
-       data: dataString,
-       success: function () {
-         $("#data-form").html("<div id='message'></div>");
-         $("#message").html("<h2>Form Submitted!</h2>")
-           .append("<p>Phone will be added to server.</p>")
-           //.hide()
-       }
-     });
-     e.preventDefault();
-   });// code credit: https://code.tutsplus.com/tutorials/submit-a-form-without-page-refresh-using-jquery--net-59
