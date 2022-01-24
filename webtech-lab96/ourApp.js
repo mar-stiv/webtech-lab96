@@ -32,9 +32,9 @@ $(function(){ // when page is loaded
 
   // Task 1 - Sorting Dynamic Table
   $("th").not("#no-sort").click(function(){ // sorts everything but the image
-    sortTable2($(this).attr('id')); // calls function below to sort column
+    sortTable($(this).attr('id')); // calls function below to sort column
 
-    function sortTable2(n) {
+    function sortTable(n) {
       var table;
       table = document.getElementById("phones"); // finds table
       var rows, i, x, y, count = 0;
