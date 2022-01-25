@@ -2,7 +2,7 @@
 // Web Technology at VU University Amsterdam
 // Assignment 3
 //
-// The assignment description is available on Canvas. 
+// The assignment description is available on Canvas.
 // Please read it carefully before you proceed.
 //
 // This is a template for you to quickly get started with Assignment 3.
@@ -33,8 +33,8 @@ let db = my_database('./phones.db');
 //
 // First, create an express application `app`:
 
-var express = require("express");
-var app = express();
+const express = require("express");
+const app = express();
 
 // We need some middleware to parse JSON data in the body of our HTTP requests:
 var bodyParser = require("body-parser");
@@ -43,7 +43,7 @@ app.use(bodyParser.json());
 
 // ###############################################################################
 // Routes
-// 
+//
 // TODO: Add your routes here and remove the example routes once you know how
 //       everything works.
 // ###############################################################################
@@ -66,7 +66,7 @@ app.get("/hello", function(req, res) {
 app.get('/db-example', function(req, res) {
     // Example SQL statement to select the name of all products from a specific brand
     db.all(`SELECT * FROM phones WHERE brand=?`, ['Fairphone'], function(err, rows) {
-	
+
     	// TODO: add code that checks for errors so you know what went wrong if anything went wrong
     	// TODO: set the appropriate HTTP response headers and HTTP response codes here.
 
