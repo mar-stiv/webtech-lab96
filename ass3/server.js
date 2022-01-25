@@ -2,7 +2,7 @@
 // Web Technology at VU University Amsterdam
 // Assignment 3
 //
-// The assignment description is available on Canvas. 
+// The assignment description is available on Canvas.
 // Please read it carefully before you proceed.
 //
 // This is a template for you to quickly get started with Assignment 3.
@@ -14,7 +14,6 @@
 //
 // Once you are familiar with Node.js and the assignment, start implementing
 // an API according to your design by adding routes.
-
 
 // ###############################################################################
 //
@@ -33,31 +32,38 @@ let db = my_database('./phones.db');
 //
 // First, create an express application `app`:
 
-var express = require("express");
-var app = express();
+const express = require("express");
+const app = express();
+const router = express.Router(); // to create modular route callbacks for the web API endpoints
+const http = require('http');
 
 // We need some middleware to parse JSON data in the body of our HTTP requests:
 var bodyParser = require("body-parser");
-app.use(bodyParser.json());
+app.use(bodyParser.json()); // adds a new middleware to the app
 
 
 // ###############################################################################
 // Routes
-// 
+//
 // TODO: Add your routes here and remove the example routes once you know how
 //       everything works.
 // ###############################################################################
+router.get("/",function(req,res){
+
+  res.json();
+});
 
 // This example route responds to http://localhost:3000/hello with an example JSON object.
 // Please test if this works on your own device before you make any changes.
 
-app.get("/hello", function(req, res) {
+app.get("/hello", function(req, res) { // Routes HTTP GET requests to the specified path with the specified callback functions.
     response_body = {'Hello': 'World'} ;
 
     // This example returns valid JSON in the response, but does not yet set the
     // associated HTTP response header.  This you should do yourself in your
     // own routes!
-    res.json(response_body) ;
+    res.json(response_body);
+    res.send('GET request to homepage');
 });
 
 // This route responds to http://localhost:3000/db-example by selecting some data from the
@@ -66,7 +72,7 @@ app.get("/hello", function(req, res) {
 app.get('/db-example', function(req, res) {
     // Example SQL statement to select the name of all products from a specific brand
     db.all(`SELECT * FROM phones WHERE brand=?`, ['Fairphone'], function(err, rows) {
-	
+
     	// TODO: add code that checks for errors so you know what went wrong if anything went wrong
     	// TODO: set the appropriate HTTP response headers and HTTP response codes here.
 
@@ -84,8 +90,8 @@ app.post('/post-example', function(req, res) {
 
 // ###############################################################################
 // This should start the server, after the routes have been defined, at port 3000:
-
-app.listen(3000);
+app.use("/api", router);
+app.listen(3000); // Binds and listens for connections on the specified host and port. This method is identical to Node’s http.Server.listen().
 console.log("Your Web server should be up and running, waiting for requests to come in. Try http://localhost:3000/hello");
 
 // ###############################################################################
