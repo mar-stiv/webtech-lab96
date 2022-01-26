@@ -7,7 +7,7 @@ $(function(){ // when page is loaded
 
     $.ajax({ // process values in dataString
       type: "POST",
-      url: "https://wt.ops.labs.vu.nl/api22/779519fb",
+      url: "https://wt.ops.labs.vu.nl/api22/779519fb", // to be replaced by http://localhost:3000/database
       data: dataString,
       success: function () {
         $('#data-form').html("<div id='message'></div>"); // display message back to user

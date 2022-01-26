@@ -33,29 +33,36 @@ let db = my_database('./phones.db');
 // First, create an express application `app`:
 
 const express = require("express");
+const router = express.Router(); // import routes
+const http = ('http'); // perform an HTTP request
+
 const app = express();
-const router = express.Router(); // to create modular route callbacks for the web API endpoints
-const http = require('http');
+app.use(express.json());
 
 // We need some middleware to parse JSON data in the body of our HTTP requests:
 var bodyParser = require("body-parser");
-app.use(bodyParser.json()); // adds a new middleware to the app
-
+app.use(bodyParser.json()); // adds a new middleware to the app which configures body parser to parse JSON
+app.use(bodyParser.urlencoded({
+   extended: true
+}));
 
 // ###############################################################################
 // Routes
 //
 // TODO: Add your routes here and remove the example routes once you know how
 //       everything works.
-// ###############################################################################
-router.get("/",function(req,res){
-
-  res.json();
+router.get('/home',function(req,res){
+  response_body = {'message': 'ping successful'};
+  res.json(response_body);
 });
+// ###############################################################################
+
+app.use('/',router); // if any request comes with the ‘/’, it will call the router function with its route.
 
 // This example route responds to http://localhost:3000/hello with an example JSON object.
 // Please test if this works on your own device before you make any changes.
 
+//reset database to first two items only
 app.get("/hello", function(req, res) { // Routes HTTP GET requests to the specified path with the specified callback functions.
     response_body = {'Hello': 'World'} ;
 
@@ -69,30 +76,44 @@ app.get("/hello", function(req, res) { // Routes HTTP GET requests to the specif
 // This route responds to http://localhost:3000/db-example by selecting some data from the
 // database and return it as JSON object.
 // Please test if this works on your own device before you make any changes.
-app.get('/db-example', function(req, res) {
+
+//
+app.get('/database', function(req, res) {
     // Example SQL statement to select the name of all products from a specific brand
     db.all(`SELECT * FROM phones WHERE brand=?`, ['Fairphone'], function(err, rows) {
 
     	// TODO: add code that checks for errors so you know what went wrong if anything went wrong
+      if (err) {
+        console.log(err);
+        res.sendStatus(500);
+        return;
+      }
+
     	// TODO: set the appropriate HTTP response headers and HTTP response codes here.
+
 
     	// # Return db response as JSON
     	return res.json(rows)
     });
 });
 
+//
 app.post('/post-example', function(req, res) {
 	// This is just to check if there is any data posted in the body of the HTTP request:
 	console.log(req.body);
 	return res.json(req.body);
 });
 
+// POST method route
+app.get('/newphone', function(req,res){ // dummy function
+  res.send('POST new phone');
+});
 
 // ###############################################################################
 // This should start the server, after the routes have been defined, at port 3000:
-app.use("/api", router);
-app.listen(3000); // Binds and listens for connections on the specified host and port. This method is identical to Node’s http.Server.listen().
-console.log("Your Web server should be up and running, waiting for requests to come in. Try http://localhost:3000/hello");
+app.listen(3000, () =>{
+  console.log("Your Web server should be up and running, waiting for requests to come in. Try http://localhost:3000/hello");
+}); // Binds and listens for connections on the specified host and port. This method is identical to Node’s http.Server.listen().
 
 // ###############################################################################
 // Some helper functions called above
