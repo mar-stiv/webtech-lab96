@@ -34,7 +34,6 @@ let db = my_database('./phones.db');
 
 const express = require("express");
 const router = express.Router(); // import routes
-const http = ('http'); // perform an HTTP request
 
 const app = express();
 app.use(express.json());
@@ -43,7 +42,7 @@ app.use(express.json());
 var bodyParser = require("body-parser");
 app.use(bodyParser.json()); // adds a new middleware to the app which configures body parser to parse JSON
 app.use(bodyParser.urlencoded({
-   extended: true
+   extended: true // restricts body to json
 }));
 
 // ###############################################################################
@@ -55,6 +54,21 @@ router.get('/home',function(req,res){
   response_body = {'message': 'ping successful'};
   res.json(response_body);
 });
+
+// POST method route
+app.get('/newphone', function(req,res){ // dummy function
+  res.send('POST new phone');
+});
+
+// retrieve full data set (all rows in product database)
+
+// add data for a new product item (create)
+
+// list data of a specific item (retrieve)
+
+// change data of a specific item (update)
+
+// remove data of a specific item (delete)
 // ###############################################################################
 
 app.use('/',router); // if any request comes with the ‘/’, it will call the router function with its route.
@@ -102,11 +116,6 @@ app.post('/post-example', function(req, res) {
 	// This is just to check if there is any data posted in the body of the HTTP request:
 	console.log(req.body);
 	return res.json(req.body);
-});
-
-// POST method route
-app.get('/newphone', function(req,res){ // dummy function
-  res.send('POST new phone');
 });
 
 // ###############################################################################
