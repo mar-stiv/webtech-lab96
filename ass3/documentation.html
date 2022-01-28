@@ -21,7 +21,7 @@
     <p>Based on simple REST principles, our web API endpoints return JSON metadata about the previously added phones directly from our Data Catalogue.</p>
     <img src="https://blog.calameo.com/wp-content/uploads/2017/10/API-EN-1.png" alt="How the API works" width="50%">
     <p>Our web API also provides direct access to our database, being able to directly alter the table deleting or adding phones.</p>
-    <p>The base address of our web API is <a href="https://api.spotify.com">address</a>. The API provides a set of endpoints, each with its own unique path. To access data through the Web API, such as the screensize or the brand of the phones.</p>
+    <p>The base address of our web API is <a href="https://api.spotify.com">here</a>. The API provides a set of endpoints, each with its own unique path. To access data through the Web API, such as the screensize or the brand of the phones.</p>
     <hr id="requests">
     <h3>HTTP Methods</h3>
   	<p>Our Web API is based on REST principles. Data resources are accessed via standard HTTPS requests in UTF-8 format to an API endpoint. Where possible, Web API uses appropriate HTTP verbs for each action:</p>
@@ -64,11 +64,15 @@
         </tr>
         <tr>
           <td>403</td>
-          <td>Bad OAuth request (wrong consumer key, bad nonce, expired timestamp...). Unfortunately, re-authenticating the user won't help here.</td>
+          <td>The web browser does not have permission.</td>
         </tr>
         <tr>
-          <td>429</td>
-          <td>The app has exceeded its rate limits.</td>
+          <td>404</td>
+          <td>The resource could not be located.</td>
+        </tr>
+        <tr>
+          <td>500</td>
+          <td>Something unexpected happened on the web server</td>
         </tr>
     </table>
     <hr id="spec-req">
@@ -91,23 +95,41 @@
     <ul>
       <li>delete phone from database</li>
     </ul>
-    <p>include pics of code (how it works)</p>
+    <p>include pics of code (how it works - post man)</p>
     <hr id="spec-resp">
     <h3>Specific Responses</h3>
     <hr id="uris">
     <h3>Endpoint URIs</h3>
     <table>
       <tr>
-        <th>smth</th>
-        <th>smth</th>
+        <th>Operation</th>
+        <th>HTTP Method</th>
+        <th>Endpoint URI</th>
       </tr>
       <tr>
-        <td>dfghj</td>
-        <td>dfgh</td>
+        <td>Get a list of phones</td>
+        <td>GET</td>
+        <td>/api/phones</td>
       </tr>
       <tr>
-        <td>fghhj</td>
-        <td>fghj</td>
+        <td>Get a single phone by id</td>
+        <td>GET</td>
+        <td>/api/phones/:id</td>
+      </tr>
+      <tr>
+        <td>Create new phone</td>
+        <td>POST</td>
+        <td>/api/insert</td>
+      </tr>
+      <tr>
+        <td>Update phone by id</td>
+        <td>PUT</td>
+        <td>/api/update/:id</td>
+      </tr>
+      <tr>
+        <td>Delete entity by id</td>
+        <td>DELETE</td>
+        <td>/api/remove/:id</td>
       </tr>
     </table>
     <hr id="parameters">

@@ -105,8 +105,10 @@ app.put("/api/update/:id", (req,res,next) =>{ // filers phone ID selected
      [item.brand, item.model, item.os, item.image, item.screensize, req.params.id],
      function(err,result){
        if(err){
-         res.status(400).json({"error": res.message})
+         res.status(400).json({"error": res.message});
          return;
+       }else if(result.id === 0){
+         res.status(404).json({"error": res.message});
        }
        res.status(201).json({"updatedID": req.params.id});
      });
