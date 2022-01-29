@@ -3,17 +3,18 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--- makes website responsive -->
-    <title>Documentation Web Api</title>
+    <title>Webshop API Documentation</title>
   </head>
   <body>
+    <h1>Webshop API Documentation</h1>
     <nav>
-    <h1>HTML Documentation</h1>
+    <hr>
+    <h2>Index</h2>
     	<ul>
-    		<li><a href="#requests">Requests</a></li>
-    		<li><a href="#responses-code">Responses</a></li>
-        <li><a href="#spec-req">Specific Requests</a></li>
-        <li><a href="#spec-res">Specific Responses</a></li>
-    		<li><a href="#uris">Endpoint URIs</a></li>
+    		<li><a href="#requests">Request Types</a></li>
+    		<li><a href="#responses-code">Status Codes</a></li>
+        <li><a href="#uris">Endpoint URIs</a></li>
+        <li><a href="#spec-req-resp">Specific Requests and Responses</a></li>
     	</ul>
     </nav>
     <hr>
@@ -21,7 +22,7 @@
     <p>Based on simple REST principles, our web API endpoints return JSON metadata about the previously added phones directly from our Data Catalogue.</p>
     <img src="https://blog.calameo.com/wp-content/uploads/2017/10/API-EN-1.png" alt="How the API works" width="50%">
     <p>Our web API also provides direct access to our database, being able to directly alter the table deleting or adding phones.</p>
-    <p>The base address of our web API is <a href="https://api.spotify.com">here</a>. The API provides a set of endpoints, each with its own unique path. To access data through the Web API, such as the screensize or the brand of the phones.</p>
+    <p>The base address of our web API is <a href="http://localhost:3000/">"http://localhost:3000/"</a>. The API provides a set of endpoints, each with its own unique path. To access data through the Web API, such as the screensize or the brand of the phones.</p>
     <hr id="requests">
     <h3>HTTP Methods</h3>
   	<p>Our Web API is based on REST principles. Data resources are accessed via standard HTTPS requests in UTF-8 format to an API endpoint. Where possible, Web API uses appropriate HTTP verbs for each action:</p>
@@ -32,19 +33,19 @@
         </tr>
         <tr>
           <td>GET</td>
-          <td>Retrieves resources</td>
+          <td>Retrieves and reads data from server</td>
         </tr>
         <tr>
           <td>POST</td>
-          <td>Creates resources</td>
+          <td>Creates data and submits it to the server</td>
         </tr>
           <tr>
             <td>PUT</td>
-            <td>Changes and/or replaces resources or collections</td>
+            <td>Updates and replaces data on the servers</td>
           </tr>
         <tr>
           <td>DELETE</td>
-          <td>Deletes resources</td>
+          <td>Removes data from server</td>
         </tr>
     </table>
     <hr id="responses-code">
@@ -75,29 +76,6 @@
           <td>Something unexpected happened on the web server</td>
         </tr>
     </table>
-    <hr id="spec-req">
-    <h3>Specific Requests</h3>
-    <h4>GET</h4>
-    <ul>
-      <li>get info from phone</li>
-      <li>get brands from phones</li>
-      <li>get models from phones</li>
-    </ul>
-    <h4>POST</h4>
-    <ul>
-      <li>new phone to database</li>
-    </ul>
-    <h4>PUT</h4>
-    <ul>
-      <li>idk</li>
-    </ul>
-    <h4>DELETE</h4>
-    <ul>
-      <li>delete phone from database</li>
-    </ul>
-    <p>include pics of code (how it works - post man)</p>
-    <hr id="spec-resp">
-    <h3>Specific Responses</h3>
     <hr id="uris">
     <h3>Endpoint URIs</h3>
     <table>
@@ -132,6 +110,101 @@
         <td>/api/remove/:id</td>
       </tr>
     </table>
+    <hr id="spec-req-resp">
+    <h3>Specific Requests and their Responses</h3>
+    <p>Web API responses normally include a JSON object.<p>
+      <h2>GET /api/phones</h2>
+      <table>
+        <tr>
+          <p>Get All Phones Currently Stored</p>
+        </tr>
+        <tr>
+          <td><strong>Return type</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Results</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Response Codes</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Example Data</strong></td>
+        </tr>
+      </table>
+      <h2>POST /api/insert</h2>
+      <table>
+        <tr>
+          <p>Get All Phones Currently Stored</p>
+        </tr>
+        <tr>
+          <td><strong>Return type</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Results</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Response Codes</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Example Data</strong></td>
+        </tr>
+      </table>
+      <h2>PUT /api/update/:id</h4>
+        <table>
+          <tr>
+            <p>Get All Phones Currently Stored</p>
+          </tr>
+          <tr>
+            <td><strong>Return type</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Results</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Response Codes</strong></td>
+          </tr>
+          <tr>
+            <td><strong>Example Data</strong></td>
+          </tr>
+        </table>
+      <h2>DELETE /api/remove/:id</h2>
+      <table>
+        <tr>
+          <p>Get All Phones Currently Stored</p>
+        </tr>
+        <tr>
+          <td><strong>Return type</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Results</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Response Codes</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Example Data</strong></td>
+        </tr>
+      </table>
+    <p><strong>Error Objects</strong><p>
+    <p>Apart from the response code, unsuccessful responses return a JSON object containing the following information:<p>
+      <table>
+        <tr>
+          <th>Key</th>
+          <th>Value Type</th>
+          <th>Value description</th>
+        </tr>
+        <tr>
+          <td>status</td>
+          <td>integer</td>
+          <td>The HTTP status code that is also returned in the response header. For further information, see <a href="#responses-code">Response Status Codes</a></td>
+        </tr>
+        <tr>
+          <td>message</td>
+          <td>string</td>
+          <td>A short description of the cause of the error.</td>
+        </tr>
+      </table>
+    <p>Here is an example of a failing request to</p>
     <hr id="parameters">
     <h3>Parameters</h3>
     <p>if applicable, parameters and posted data</p>

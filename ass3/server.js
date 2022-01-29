@@ -109,6 +109,9 @@ app.put("/api/update/:id", (req,res,next) =>{ // filers phone ID selected
          return;
        }else if(result.id === 0){
          res.status(404).json({"error": res.message});
+         return;
+       }else if(this.changes>0){
+         res.status.(400).json({"message":"ID not found"});
        }
        res.status(201).json({"updatedID": req.params.id});
      });
