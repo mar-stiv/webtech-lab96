@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="oldDesign.css"> <!--- links html file to css file -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--- makes website responsive -->
+    <title>Mobile Phone Web Shop</title>
+    <link rel="icon" href="https://media.discordapp.net/attachments/887340040496238652/931255515923771392/logo.png">
+  </head>
+  <body>
+    <div class="header">
+      <a href="index.html">
+        <img src="https://media.discordapp.net/attachments/887340040496238652/931255515923771392/logo.png" alt="Logo" width="60" height="80">
+      </a>
+      <h1>MobTech</h1>
+      <h2>Welcome to our Web Shop!</h2>
+    </div>
+
+<!--- Navigation Bar -->
+    <nav>
+      <a class="active" href="#home">Home</a>
+      <a href="#top5">Top 5 Phones</a>
+      <a href="#newest">Newest Phones</a>
+      <a href="#top_month">Top of the Month</a>
+      <a href="#bought_with">Accessories</a>
+      <a href="#footer">Our Purposes</a>
+      <a href="#footer">Brands Offered</a>
+    </nav>
+
+<!--- Top 5 Phones -->
+    <section class="top5" id="top5">
+      <form action="https://wt.ops.labs.vu.nl/api22/779519fb" method="post">
+        <table>
+          <caption>Check out our top 5 mobile phones!</caption>
+          <tr>
+            <th>Image</th>
+            <th>Model</th>
+            <th>Brand</th>
+            <th>OS</th>
+            <th>Screensize</th>
+          </tr>
+          <tr>
+            <td class="have-border">
+              <a href="https://m.media-amazon.com/images/I/613vLmkDsJL._AC_SL1500_.jpg"><img src="https://m.media-amazon.com/images/I/613vLmkDsJL._AC_SL1500_.jpg" alt="Iphone 13 pro"></a>
+            </td>
+            <td class="have-border" id="phone5">Iphone 13 pro</td>
+            <td class="have-border">Apple</td>
+            <td class="have-border">IOS 15</td>
+            <td class="have-border">6.1"</td>
+          </tr>
+          <tr>
+            <td class="have-border"><a href="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages-na.ssl-images-amazon.com%2Fimages%2FI%2F81pj6lhsMZL._AC_SL1500_.jpg&f=1&nofb=1"><img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages-na.ssl-images-amazon.com%2Fimages%2FI%2F81pj6lhsMZL._AC_SL1500_.jpg&f=1&nofb=1" alt="Samsung Galaxy S21 Ultra"></a></td>
+            <td class="have-border" id="phone1">Samsung Galaxy S21 Ultra</td>
+            <td class="have-border">Samsung</td>
+            <td class="have-border">Android 11</td>
+            <td class="have-border">6.8"</td>
+          </tr>
+          <tr>
+            <td class="have-border"><a href="https://m.media-amazon.com/images/I/71IluxZN8pL._AC_SL1500_.jpg"><img src="https://m.media-amazon.com/images/I/71IluxZN8pL._AC_SL1500_.jpg" alt="Iphone 12"></a></td>
+            <td class="have-border" id="phone2">Iphone 12</td>
+            <td class="have-border">Apple</td>
+            <td class="have-border">IOS</td>
+            <td class="have-border">6.1"</td>
+          </tr>
+          <tr>
+            <td class="have-border">
+              <a href="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fnolodejesescapar.com%2Fwp-content%2Fuploads%2F2021%2F01%2FSamsung-Galaxy-S21.jpg&f=1&nofb=1">
+                <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fnolodejesescapar.com%2Fwp-content%2Fuploads%2F2021%2F01%2FSamsung-Galaxy-S21.jpg&f=1&nofb=1" alt="Samsung Galaxy S21">
+              </a>
+            </td>
+            <td class="have-border" id="phone3">Samsung Galaxy S21</td>
+            <td class="have-border">Samsung</td>
+            <td class="have-border">Android 9</td>
+            <td class="have-border">6.2"</td>
+          </tr>
+          <tr>
+            <td class="have-border"><a href="https://m.media-amazon.com/images/I/817NmEWIdwL._AC_SL1500_.jpg"><img src="https://m.media-amazon.com/images/I/817NmEWIdwL._AC_SL1500_.jpg" alt="Iphone SE"></a></td>
+            <td class="have-border" id="phone4">Iphone SE</td>
+            <td class="have-border">Apple</td>
+            <td class="have-border">IOS</td>
+            <td class="have-border">4.7"</td>
+          </tr>
+          <tr>
+            <td><pre>For Employees ONLY!        <em>Add new phone to server:</em></pre></td>
+          </tr>
+          <!--- Form to be filled in -->
+          <tr>
+            <td>
+              <input type="url" name="image" id="image" placeholder="Paste Image Link Here" required>
+            </td>
+            <td>
+              <input type="text" name="model" id="model" placeholder="Ex:IPhone 11" required>
+            </td>
+            <td>
+              <input type="text" name="brand" id="brand" placeholder="Ex: Apple" required>
+            </td>
+            <td>
+              <select name="os" id="os" required>
+                <option value="" hidden>Pick an OS</option>
+                <option value="ios">IOS</option>
+                <option value="windows">Windows</option>
+                <option value="android">Android</option>
+              </select>
+            </td>
+            <td>
+              <input type="number" name="screensize" id="screensize" placeholder="6" max="100" min="3" step="1" required>
+            </td>
+            <td>
+              <input type="submit" value="Submit">
+            </td>
+          </tr>
+         </table>
+        </form>
+      </section>
+<!--- Newest Phones to the Market -->
+      <section class="newest" id="newest">
+        <h2>Newest Arrivals!</h2>
+        <table>
+         <tr>
+           <th>Xiaomi 11i 5G</th>
+           <th>Oppo A36</th>
+           <th>Samsung Galaxy AO3</th>
+           <th>Huawei Enjoy 20e</th>
+         </tr>
+         <tr>
+
+             <td><img src="https://i.gadgets360cdn.com/products/small/xiaomi-11i-5g-240x180-1641453772.jpg" alt="Xiaomi 11i 5G"></td>
+             <td><img src="https://i.gadgets360cdn.com/products/small/oppo-a36-DB-240x180-1641814763.jpg" alt="Oppo A36"></td>
+             <td><img src="https://i.gadgets360cdn.com/products/small/samsung-galaxy-a03-240x180-1641216629.jpg" alt="Samsung Galaxy AO3"></td>
+             <td><img src="https://i.gadgets360cdn.com/products/large/huawei-enjoy-20e-2022-378x800-1641533728.jpg?downsize=*:180" alt="Huawei Enjoy 20e"></td>
+
+         </tr>
+         <tr>
+           <td>Xiaomi</td>
+           <td>OPPO</td>
+           <td>Samsung</td>
+           <td>Huawei</td>
+         </tr>
+         <tr>
+           <td>Android</td>
+           <td>Android</td>
+           <td>Android</td>
+           <td>HarmonyOS</td>
+         </tr>
+         <tr>
+           <td>6.7"</td>
+           <td>6.6"</td>
+           <td>6.5"</td>
+           <td>6.3"</td>
+         </tr>
+         <tr>
+           <td>Now Available!</td>
+           <td>Now Available!</td>
+           <td>Coming in January!</td>
+           <td>Coming in January!</td>
+         </tr>
+       </table>
+       <iframe src="https://www.youtube.com/embed/JjxAP4fetvY" name= "youtube-video" title="YouTube video player"></iframe>
+       <p>What to expect when you buy the Samsung Galaxy AO3!</p>
+     </section>
+
+<!--- Top Phone of the Month -->
+     <section class="top_month" id="top_month">
+       <h2>Top Phone of the Month!</h2>
+       <p><strong>Apple: Iphone 13 Pro Max</strong></p>
+       <img src="https://i.gadgets360cdn.com/products/large/iphone-13-pro-max-400x800-1631648541.jpg?downsize=*:180" alt="Iphone 13 Pro Max" class="top">
+       <ul class="top-list">
+         <li>one of the best camera resolutions up to date</li>
+         <li>new light sensors</li>
+         <li>up to 15x digital zoom</li>
+         <li>new processor A15 <abbr>Bionic</abbr></li>
+         <li>longer battery life than before</li>
+         <li>Adaptive refresh up to 120Hz</li>
+       </ul>
+     </section>
+
+<!--- Accessories typically bought with [phone] -->
+    <section class="bought_with" id="bought_with">
+      <h2>Typically Bought with...</h2>
+      <dl>
+        <dt><strong><u>Samsung Galaxy S21 Ultra</u></strong></dt>
+        <dd><a href="https://www.amazon.de/-/en/Samsung-EJ-PG998-Galaxy-Ultra-Black/dp/B08PPTGF2H/ref=sr_1_3?crid=LI433JQ8T3XF&keywords=Samsung+S+Pen+EJ-PG998&qid=1642086711&sprefix=samsung+s+pen+ej-pg998%2Caps%2C105&sr=8-3">Samsung S Pen EJ-PG998</a></dd>
+        <dd><a href="https://www.amazon.de/-/en/Samsung-Fast-Charger-Without-Cable/dp/B08P95B5FR/ref=sr_1_3?crid=24OTK4OB4FOH&keywords=samsung+25w+schnellladeger%C3%A4t+-+usb+typ+c&qid=1642087017&sprefix=samsung+25w+fast+charger+-+usb+type+c%2Caps%2C116&sr=8-3">Samsung 25W Fast Charger - USB Type C </a></dd>
+        <dd><a href="https://www.amazon.de/Tempered-Protector-Fingerprint-Compatible-Coverage/dp/B09NXQ5Q5Y/ref=sr_1_1_sspa?crid=1R7F5HLNXF9BJ&keywords=tauri+displayschutzfolie+samsung+galaxy+s21+ultra&qid=1642086962&sprefix=tauri+screen+protector+samsung+galaxy+s21+ultra%2Caps%2C135&sr=8-1-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUExOUpNTUhINkNBUFcyJmVuY3J5cHRlZElkPUEwNTE1MDg4MVlINjBBWUZMM1dVMiZlbmNyeXB0ZWRBZElkPUEwNzE2MDg3MVVUREZQRTZDMVpVVSZ3aWRnZXROYW1lPXNwX2F0ZiZhY3Rpb249Y2xpY2tSZWRpcmVjdCZkb05vdExvZ0NsaWNrPXRydWU=">Tauri Screen Protector</a></dd>
+        <dt><strong><u>iPhone 13 Pro</u></strong></dt>
+        <dd><a href="https://www.amazon.de/Apple-AirPods-MagSafe-charging-case/dp/B09JQZ5DYM/ref=sr_1_1_sspa?crid=1R5ELRE6HFBSV&keywords=Apple+AirPods+Pro&qid=1642087048&sprefix=apple+airpods+pro%2Caps%2C136&sr=8-1-spons&psc=1&spLa=ZW5jcnlwdGVkUXVhbGlmaWVyPUExOTYwNThZRDI2MDZUJmVuY3J5cHRlZElkPUEwMDkxODI4MjZHM0s2TVZHMTZVUiZlbmNyeXB0ZWRBZElkPUEwODk2NjMwN1VWUzg0QjFYNlhPJndpZGdldE5hbWU9c3BfYXRmJmFjdGlvbj1jbGlja1JlZGlyZWN0JmRvTm90TG9nQ2xpY2s9dHJ1ZQ==">Apple AirPods Pro</a><dd>
+        <dd><a href="https://www.amazon.de/-/en/MHXH3ZM-A-Apple-MagSafe-Charger/dp/B08L5R6ZHP/ref=sr_1_3?crid=37FBIBSFWXI1K&keywords=magsafe-ladeger%C3%A4t&qid=1642087089&sprefix=magsafe+charger%2Caps%2C317&sr=8-3">MagSafe Charger</a></dd>
+        <dd><a href="https://www.amazon.de/-/en/MM2A3ZM-A/dp/B09G8WV2F2/ref=sr_1_3?crid=2R6CQVR3D8GMQ&keywords=apple+silikon+h%C3%BClle+mit+magsafe&qid=1642087108&sprefix=apple+silicone+case+with+magsafe%2Caps%2C100&sr=8-3">Apple Silicon Case with MagSafe</a><dd>
+      </dl>
+    </section>
+
+    <section class="footer" id="footer">
+      <div class="column purposes">
+        <!--- Purposes of our Company -->
+        <h2>Our Purpose</h2>
+        <ol type="1">
+          <li>To be a customer-centric company</li>
+          <li>To provide the best mobile devices in the market</li>
+          <li>To give the people the power of doing anything from their fingertips</li>
+          <li>To organise valuable information on mobile devices to be understood by all <i>even if you're not a tech person</i></li>
+        </ol>
+      </div>
+
+      <div class="column brands">
+        <!--- Brands Offered by Our Company -->
+        <h2>Brands we Offer!</h2>
+        <figure>
+          <p class="aligncentre"><img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.budgetmobilephones.com.au%2Fwp-content%2Fuploads%2F2010%2F10%2Fapple-nokia-lg-motorola-samsung-sony-logos.jpg&f=1&nofb=1" alt="Brands"></p>
+          <figcaption>Starting from the left: Apple, Nokia, Motorola, LG, Samsung, Sony Ericsson</figcaption>
+        </figure>
+      </div>
+    </section>
+  </body>
+</html>
+<!-- Short Browser Compatibility Report -->
+<!-- 1. Print Style Testing on Different Browsers
+    First we discussed which browsers we use and concluded we would test our code on:
+    - Safari
+    - Edge
+    - Chrome
+    - Opera
+    - Firefox
+    We decided to use those 5 as we think they are the most common used ones.
+
+    In our testing we concluded that our design is compatible with each browser.
+    We used the "page-break-after" and "page-break-before" commands to try and enssure a similar display on all Browsers.
+
+    Chrome and Firefox have the same printing display. Our website is printed in 4 pages, leaving a space between out two tables.
+    Opera and Edge have the same display as well. These two Browsers also print the site in 4 pages, but they display the table slightly bigger than the previous browsers. The use of "page-break-after" is really useful with these browsers as the design falls apart without it.
+    Finally Safari prints the webstite in 5 pages. This browser also makes the table slightly bigger as the previous two browsers, but it also includes a white page separating the contents of the page and the footer. This is the only browser to do so.
+
+    The design follows consistent across the 5 browsers with slight changes.
+-->
+<!-- 2. Test on Different Screen Sizes
+    To test our Website compatibility with different devices we used the chrome DevTool.
+    The Chrome desktop browser's DevTools provides a screen emulator that can mimic a wide range of smartphones and tablets. We access the DevTools screen emulator by typing Ctrl-Shift-I in Chrome (Windows) or Command-Option-I (Mac).
+    We were able to view our page in different sizes and we were able to adjust our design accordingly.
+-->
+<!-- 3. HTML5 and CSS Constructs in Different Browsers (worked/didn't)
+    First, we checked which constructs are accepted by what browser and their version.
+    We decided to use the same 5 browsers we did for the print check.
+    To ensure accurate support, we made use of the latest versions of the browsers.
+    We discovered that constructs such as 'font-size-override'  is not shown in the browsers we made use of, except for firefox.
+    Additionally, edge was found to not support a few constructs which other browsers did such as "text-emphasis", "text-combine-upright", and "font-variant-numeric".
+    Overall, we found that the 5 browsers supported a majority of constructs, with more specific constructs such as "mask-mode", "text-underline-position" and "font-variant-position" being supported by only one or two browsers.
+    Thus, we made sure in our code that both html and css constructs we made use of could be visible in all 5 major browsers.
+-->
