@@ -53,7 +53,7 @@ app.use(bodyParser.urlencoded({
    extended: true // restricts body to json
 }));
 
-// Routes for http://localhost:3000/:
+// Routes for http://localhost:3000/
 
 // 1. retrieve full data set (all rows in product database) - GET - WORKS
 app.get("/api/phones", (req,res,next) =>{
@@ -93,7 +93,8 @@ app.get("/api/phones/:id", (req,res,next) => {
       if(row.length>0){
         res.status(200).json(row);
       }else{
-
+        res.status(400).json({"message":"invalid id"});
+        return;
       }
     });
 });
@@ -107,11 +108,11 @@ app.put("/api/update/:id", (req,res,next) =>{ // filers phone ID selected
        if(err){
          res.status(400).json({"error": res.message});
          return;
-       }else if(result.id === 0){
+       /*}else if(result.id === 0){
          res.status(404).json({"error": res.message});
-         return;
+         return;*/
        }else if(this.changes>0){
-         res.status.(400).json({"message":"ID not found"});
+         res.status(400).json({"message":"ID not found"});
        }
        res.status(201).json({"updatedID": req.params.id});
      });

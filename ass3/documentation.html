@@ -11,10 +11,11 @@
     <hr>
     <h2>Index</h2>
     	<ul>
-    		<li><a href="#requests">Request Types</a></li>
+    		<li><a href="#requests">HTTP Request Types</a></li>
     		<li><a href="#responses-code">Status Codes</a></li>
         <li><a href="#uris">Endpoint URIs</a></li>
         <li><a href="#spec-req-resp">Specific Requests and Responses</a></li>
+        <li><a href="#error-objs">Error Objects</a></li>
     	</ul>
     </nav>
     <hr>
@@ -24,7 +25,7 @@
     <p>Our web API also provides direct access to our database, being able to directly alter the table deleting or adding phones.</p>
     <p>The base address of our web API is <a href="http://localhost:3000/">"http://localhost:3000/"</a>. The API provides a set of endpoints, each with its own unique path. To access data through the Web API, such as the screensize or the brand of the phones.</p>
     <hr id="requests">
-    <h3>HTTP Methods</h3>
+    <h3>HTTP Request Methods</h3>
   	<p>Our Web API is based on REST principles. Data resources are accessed via standard HTTPS requests in UTF-8 format to an API endpoint. Where possible, Web API uses appropriate HTTP verbs for each action:</p>
     <table>
         <tr>
@@ -57,7 +58,15 @@
         </tr>
         <tr>
           <td>200</td>
-          <td>The request was succesful</td>
+          <td>The request was succesful. The client can read the result of the request in the body and the headers of the response.</td>
+        </tr>
+        <tr>
+          <td>201</td>
+          <td>The request succeeded, and a new resource was created as a result.</td>
+        </tr>
+        <tr>
+          <td>400</td>
+          <td>The server could not understand the request due to invalid syntax.</td>
         </tr>
         <tr>
           <td>401</td>
@@ -69,11 +78,11 @@
         </tr>
         <tr>
           <td>404</td>
-          <td>The resource could not be located.</td>
+          <td>The server can not find the requested resource. In an API, this can also mean that the endpoint is valid but the resource itself does not exist.</td>
         </tr>
         <tr>
           <td>500</td>
-          <td>Something unexpected happened on the web server</td>
+          <td>The server has encountered a situation it does not know how to handle.</td>
         </tr>
     </table>
     <hr id="uris">
@@ -119,73 +128,122 @@
           <p>Get All Phones Currently Stored</p>
         </tr>
         <tr>
-          <td><strong>Return type</strong></td>
+          <h3><strong>Results</strong></h3>
+          <p><strong>Return Type: </strong>Array of Phones</p>
+          <p><strong>Content Type: </strong>Application/JSON</p>
+          <p style="font-family: monospace"><pre>
+            {
+              "rows": [
+                  {
+                  "id": 1,
+                  "brand": "Fairphone",
+                  "model": "FP3",
+                  "os": "Android",
+                  "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Fairphone_3_modules_on_display.jpg/320px-Fairphone_3_modules_on_display.jpg",
+                  "screensize": 5.65
+                  }
+              ]
+            }
+</pre></p>
         </tr>
         <tr>
-          <td><strong>Results</strong></td>
+          <h3><strong>Response Codes</strong></h3>
+          <p>400, 200</p>
+        </tr>
+      </table>
+      <h2>GET /api/phones/:id</h2>
+      <table>
+        <tr>
+          <p>Get Specific Phone Currently Stored</p>
         </tr>
         <tr>
-          <td><strong>Response Codes</strong></td>
+          <h3><strong>Results</strong></h3>
+          <p><strong>Return Type: </strong>Array of Phone</p>
+          <p><strong>Content Type: </strong>Application/JSON</p>
+          <p style="font-family: monospace"><pre>
+            [
+                {
+                    "id": 2,
+                    "brand": "Apple",
+                    "model": "IPhone 13",
+                    "os": "IOS",
+                    "image": "iphone-image",
+                    "screensize": 6
+                }
+            ]
+</pre></p>
         </tr>
         <tr>
-          <td><strong>Example Data</strong></td>
+          <h3><strong>Response Codes</strong></h3>
+          <p>400, 200</p>
         </tr>
       </table>
       <h2>POST /api/insert</h2>
       <table>
         <tr>
-          <p>Get All Phones Currently Stored</p>
+          <p>Insert Phone into DataBase</p>
         </tr>
         <tr>
-          <td><strong>Return type</strong></td>
+          <h3><strong>Results</strong></h3>
+          <p><strong>Return Type: </strong>integer of Phone ID</p>
+          <p><strong>Content Type: </strong>Application/JSON</p>
+          <p>When given: <pre style="font-family: monospace">
+            {"brand":"Apple","model":"IPhone 13","os":"IOS","image":"iphone-image","screensize":"6"}</pre>
+            Response is: <pre style="font-family: monospace">
+            {
+              "phone_id": 2
+            }
+</pre></p>
         </tr>
         <tr>
-          <td><strong>Results</strong></td>
-        </tr>
-        <tr>
-          <td><strong>Response Codes</strong></td>
-        </tr>
-        <tr>
-          <td><strong>Example Data</strong></td>
+          <h3><strong>Response Codes</strong></h3>
+          <p>400, 201</p>
         </tr>
       </table>
       <h2>PUT /api/update/:id</h4>
         <table>
           <tr>
-            <p>Get All Phones Currently Stored</p>
+            <p>Update Specific Phone Currently Stored</p>
           </tr>
           <tr>
-            <td><strong>Return type</strong></td>
+            <h3><strong>Results</strong></h3>
+            <p><strong>Return Type: </strong>integer of Phone ID</p>
+            <p><strong>Content Type: </strong>Application/JSON</p>
+            <p>When given: <pre style="font-family: monospace">
+              {"brand":"Apple","model":"IPhone 13 mini","os":"IOS","image":"iphone-image","screensize":"6"}</pre>
+              Response is: <pre style="font-family: monospace">
+              {
+                "updatedID": 1
+              }
+  </pre></p>
           </tr>
           <tr>
-            <td><strong>Results</strong></td>
-          </tr>
-          <tr>
-            <td><strong>Response Codes</strong></td>
-          </tr>
-          <tr>
-            <td><strong>Example Data</strong></td>
+            <h3><strong>Response Codes</strong></h3>
+            <p>400, 201</p>
           </tr>
         </table>
       <h2>DELETE /api/remove/:id</h2>
       <table>
         <tr>
-          <p>Get All Phones Currently Stored</p>
+          <p>Delete Specific Phone Currently Stored</p>
         </tr>
         <tr>
-          <td><strong>Return type</strong></td>
+          <h3><strong>Results</strong></h3>
+          <p><strong>Return Type: </strong>integer of Phone ID</p>
+          <p><strong>Content Type: </strong>Application/JSON</p>
+          <p style="font-family: monospace"><pre>
+            {
+              "deletedID": 1
+            }
+</pre></p>
         </tr>
         <tr>
-          <td><strong>Results</strong></td>
-        </tr>
-        <tr>
-          <td><strong>Response Codes</strong></td>
-        </tr>
-        <tr>
-          <td><strong>Example Data</strong></td>
+          <h3><strong>Response Codes</strong></h3>
+          <p>400, 200</p>
         </tr>
       </table>
-    <p><strong>Error Objects</strong><p>
+    <hr id="error-objs">
+    <h3><strong>Error Objects</strong></h3>
     <p>Apart from the response code, unsuccessful responses return a JSON object containing the following information:<p>
       <table>
         <tr>
@@ -204,11 +262,16 @@
           <td>A short description of the cause of the error.</td>
         </tr>
       </table>
-    <p>Here is an example of a failing request to</p>
-    <hr id="parameters">
-    <h3>Parameters</h3>
-    <p>if applicable, parameters and posted data</p>
-
+    <p>Here is an example of an error that occurs when trying to retrieve a phone which does not exist</p>
+    <p style="font-family: monospace"><pre>
+      HTTP/1.1 400 Bad Request
+      {
+          "error": {
+              "status": 400,
+              "message": "invalid id"
+          }
+      }
+    </pre></p>
 <!---    		<div id="table-ex">
     			<p><code>&lt;table&gt;</p>
     			<p>&lt;caption&gt;Table caption&lt;/caption&gt;</p>
