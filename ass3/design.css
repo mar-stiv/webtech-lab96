@@ -1,0 +1,313 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 30px;
+  font-family: arial;
+  background-image: url("https://www.schemecolor.com/wallpaper?i=39490&desktop" );
+  background-repeat: repeat-y;
+  background-size: 150px;
+}
+
+/*design of table*/
+table {
+  margin-left: auto;
+  margin-right: auto;
+}
+th, td.have-border{
+  border: 1px solid #dedede;
+  border-collapse: collapse;
+}
+
+/*header*/
+.header {
+  width: 95vw;
+  background-color: #f1f1f1;
+  padding: 40px 20px;
+  text-align: center;
+}
+h1 {
+  font: oblique bold 2.7rem arial;
+  text-decoration: underline overline wavy #cc7700;
+}
+.header h2 {
+  color: #5c5c5c;
+  font: bold 1.2rem serif;
+}
+
+/*top5 available phones*/
+.top5 {
+  text-align: center;
+  page-break-after: always;
+}
+.top5 p {
+  text-transform: uppercase;
+  font-family: copperplate;
+  font-size: 20px;
+  font-weight: 500;
+}
+.top5 table {
+  background-color: white;
+}
+#phones th:hover{
+  color: rgb(232, 124, 0);
+}
+input[type=text], input[type=url]{
+  width: 100px;
+}
+input[type=text]:focus, input[type=url]:focus{
+  width: 250px;
+  color: black;
+  background-color: #e0e0e0;
+}
+input[type=button] {
+  background-color: #ffa530;
+}
+input[type=button]:hover {
+  background-color: #e89220;
+}
+input[type=button]:active {
+  background-color: #db701f;
+}
+input[type=submit]:active {
+  background-color: #696969;
+}
+#os {
+  color: #737373;
+}
+
+/*newest arrivals*/
+.newest {
+  margin: auto;
+  text-align: center;
+  width: 1100px;
+  background-color: #f1f1f1;
+  border: 10px double orange; /*shorthand property*/
+  box-shadow: 5px 5px 2px lightgrey;
+}
+.newest caption {
+  caption-side: top;
+  font-style: italic;
+  font-size: 1.7rem;
+  line-height: 2;
+}
+.newest table {
+  border-color: white;
+  border-spacing: 27px 0px;
+}
+.newest table td {
+  border-left: 1px solid #d6d6d6;
+  border-right: 1px solid #d6d6d6;
+  border-top: 0.5px solid #f1f1f1;;
+  border-bottom: 0.5px solid #f1f1f1;;
+  border-collapse: collapse;
+}
+
+/*top phone of the month*/
+.top_month {
+  text-align: center;
+}
+.top_month li {
+    display: list-item;
+    text-align: center;
+    list-style-position: inside;
+    font-variant: small-caps;
+    font-size: 20px;
+    list-style: square inside url("https://media.discordapp.net/attachments/887340040496238652/931258037291876443/square-list-image.png");
+    vertical-align: baseline;
+  }
+
+/* Responsive Navigation Bar */
+ul.nav-bar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+ul.nav-bar li {
+  float: left;
+}
+
+ul.nav-bar li a.active {
+  background-color: #04AA6D;
+}
+
+ul.nav-bar li a:hover:not(.active) {
+  background-color: #111;
+}
+
+@media screen and (max-width: 600px) {
+  ul.nav-bar li.right,
+  ul.nav-bar li {float: none;}
+}
+
+ul.nav-bar li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/*For Phone*/
+@media screen and (max-device-width: 400px) {
+  ul.nav-bar li a {
+    text-align: center;
+    float: none;
+  }
+}
+ol {
+  list-style-type: lower-roman;
+}
+img.top {
+  vertical-align: baseline;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+/*usually bought with*/
+.bought_with {
+  text-align: center;
+  line-height: 1.3;
+}
+a {
+  text-decoration: none;
+}
+a:link {
+  color: black;
+}
+a:hover {
+  color: rgb(232, 124, 0);
+}
+a:active {
+  color: rgb(107, 0, 5);
+}
+a:visited {
+  color: rgb(120, 120, 120);
+}
+dt {
+  font-size: 1.25rem;
+  line-height: 1.8;
+}
+
+/*footer*/
+.footer {
+  page-break-before: always;
+}
+.footer li {
+  font-style: normal;
+  text-indent: 5%;
+  line-height: 1.5;
+  font-weight: normal;
+}
+.column {
+  background-color: #dedede;
+  width: 95vw;
+  float: left;
+  padding: 30px;
+}
+.column.purposes {
+  text-indent: 30%;
+  width: 40%;
+}
+.column.brands {
+  text-indent: 30%;
+  width: 60%;
+}
+.brands figcaption {
+  font-weight: normal;
+  text-align: center;
+}
+.bottom:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/*Caption for Figure*/
+figcaption{
+  text-align: right;
+}
+/*Changes font for all Pre*/
+pre{
+  font-family: 'Athelas',sans-serif;
+}
+
+@media screen and (max-width: 600px) {
+  .column.purposes, .column.brands {
+    width: 100%;
+  }
+}
+
+/*design for tablets and phones (responsive design)*/
+@media screen and (max-device-width:1024px) and (orientation:portrait){
+    body {
+      background-image: url("https://www.schemecolor.com/wallpaper?i=39490&desktop" );
+      background-repeat: repeat-x;
+      background-color: #ffb442;
+      margin-top: 30px;
+      margin-left: 10px;
+      margin-right: auto;
+    }
+    .header {
+      width: auto;
+    }
+    h1 {
+      font: oblique bold 3rem arial;
+    }
+    .top5 table {
+      width: auto;
+      background-color: #f1f1f1;
+    }
+    .top5 td, .top5 th {
+       display: block;
+    }
+    .top5 th {
+      font-size: 0px;
+    }
+    #phones th {
+      font-weight: bold;
+    }
+    /*bigger buttons*/
+    input[type=text], input[type=url], input[type=number]{
+      width: 9em;
+      height: 3em;
+    }
+    input[type=text]:focus, input[type=url]:focus{
+      width: 18em;
+      height: 7em;
+    }
+    input[type=submit] {
+      width: 9em;
+      height: 3em;
+    }
+    .newest{
+     margin-left: auto;
+     text-align: center;
+     width: auto;
+     background-color: #f1f1f1;
+     border: 5px double orange;
+     box-shadow: none;
+     overflow: auto;
+   }
+    .column.brands img {
+      width: auto;
+      height: auto;
+    }
+    @media screen and (max-device-width:600px) and (orientation:portrait) {
+      /*footer alignment in phones*/
+      .column {
+        float: none;
+        display: inline-block;
+        background-color: #dedede;
+      }
+    }
+}
+
+@media print {
+      orphans: 4;
+      widows: 2;
+    }

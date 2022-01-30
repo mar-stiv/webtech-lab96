@@ -26,36 +26,36 @@ $(function(){ // when page is loaded
   //Update Table with New Phone Data
   $("#updateForm").on("submit",function (e){
     console.log("update has been submitted");
-    var dataString = $(this).serializeArray(); // captures data from form to send
-    console.log(dataString[5]);
+    var dataString = $(this).serialize(); // captures data from form to send
+    console.log(dataString);
+    console.log(dataString.id);
     $.ajax({
       type: "PUT",
-      url:"http://localhost:3000/api/update/" +dataString[5].value,
+      url:"http://localhost:3000/api/update/" +dataString.id,
       data: dataString,
       success: function(){
         getTable(); // Sometimes the server doesn't reload the table fast enough so you need to wait until the server is done resetting
         $('input').not(".button").val("");
       }
     });
-    e.preventDefault();
+    getTable(); // Sometimes the server doesn't reload the table fast enough so you need to wait until the server is done resetting
+    $('input').not(".button").val(""); // clears out the form
+    //e.preventDefault();
   });
 
   // Delete Button removes Phone w/Specific ID
   $('#deleteForm').on("submit",function(e){
     console.log("delete has been submitted");
-    var id = $(this).serializeArray(); // captures data from form to send
+    var id = $(this).serialize(); // captures data from form to send
     console.log(id);
-    console.log(id[0].value);
     $.ajax({
-      url:"http://localhost:3000/api/remove/" +id[0].value,
+      url:"http://localhost:3000/api/remove/" +id,
       type: "DELETE",
-      success: function(data){
-        console.log("success!");
-        getTable(); // Sometimes the server doesn't reload the table fast enough so you need to wait until the server is done resetting
-        $('input').not(".button").val(""); // clears out the form
-      }
+      data: id,
     });
-    e.preventDefault();
+    getTable(); // Sometimes the server doesn't reload the table fast enough so you need to wait until the server is done resetting
+    $('input').not(".button").val(""); // clears out the form
+    //e.preventDefault();
   });
 
   // Task 1 - Sorting Dynamic Table
@@ -130,7 +130,7 @@ $(function(){ // when page is loaded
 function getTable(){
   $.ajax({
     type: "GET",
-    url:"http://localhost:3000/api/phones", // retrieve full data set (all rows in product database)
+    url:"http://localhost:3000/api/phones",
     dataType: "json"
   })
   .done(function(data){
@@ -141,7 +141,7 @@ function getTable(){
     const $mytable = $("#phones"); // finds table
     $thead = $mytable.find("thead");
     $("tbody tr").remove(); // removes previous rows (if it finds one)
-    phones.rows.forEach(phone =>{ // for each row
+    phones.rows.forEach(phone =>{
       $tbody = $mytable.find("tbody");
       $tbody.append("<tr></tr>");
       $newRow =  $tbody.find("tr");// for each item, create new tr element
