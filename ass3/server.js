@@ -114,7 +114,7 @@ app.put("/api/update/:id", (req,res,next) =>{ // filers phone ID selected
        }else if(this.changes>0){
          res.status(400).json({"message":"ID not found"});
        }
-       res.status(201).json({"updatedID": req.params.id});
+       res.sendStatus(204); // return no message in body
      });
 });
 
@@ -127,7 +127,7 @@ app.delete("/api/remove/:id", (req, res, next) =>{
         res.status(400).json({"error":res.message})
         return;
       }
-      res.status(200).json({"deletedID":req.params.id})
+      res.sendStatus(204); // return no message in body
     });
 });
 
