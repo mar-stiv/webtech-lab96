@@ -8,5 +8,9 @@
     "start": "node server.js"
   },
   "author": "Maria & Rita",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "sqlite3": "^5.0.2"
+  }
 }

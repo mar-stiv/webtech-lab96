@@ -8,6 +8,9 @@
 // We are going to use the variable "db' to communicate to the database:
 // If you want to start with a clean sheet, delete the file 'phones.db'.
 // It will be automatically re-created and filled with one example item.
+const sqlite = require('sqlite3').verbose();
+let db = my_database('./phones.db');
+
 function my_database(filename) {
 	// Conncect to db by opening filename, create filename if it does not exist:
 	var db = new sqlite.Database(filename, (err) => {
@@ -40,18 +43,19 @@ function my_database(filename) {
 	return db;
 }
 
-const sqlite = require('sqlite3').verbose();
-let db = my_database('./phones.db');
-
 const express = require("express");
 const app = express();
 app.use(express.json());
+//app.use(express.static("ass3"));
 
 var bodyParser = require("body-parser");
 app.use(bodyParser.json()); // adds a new middleware to the app which configures body parser to parse JSON
 app.use(bodyParser.urlencoded({
    extended: true // restricts body to json
 }));
+
+var cors = require('cors');
+app.use(cors());
 
 // Routes for http://localhost:3000/
 
@@ -100,7 +104,7 @@ app.get("/api/phones/:id", (req,res,next) => {
 });
 
 // 4. change data of a specific item (update) - PUT - WORKS
-app.put("/api/update/:id", (req,res,next) =>{ // filers phone ID selected
+app.put("/api/update/:id", (req,res,next) =>{ // filters phone ID selected
   item = req.body;
   db.run(`UPDATE phones SET brand=?, model=?, os=?, image=?,screensize=? WHERE id=?`,
      [item.brand, item.model, item.os, item.image, item.screensize, req.params.id],
@@ -111,10 +115,10 @@ app.put("/api/update/:id", (req,res,next) =>{ // filers phone ID selected
        /*}else if(result.id === 0){
          res.status(404).json({"error": res.message});
          return;*/
-       }else if(this.changes>0){
+       }else if(this.changes<0){
          res.status(400).json({"message":"ID not found"});
        }
-       res.status(201).json({"updatedID": req.params.id});
+       res.sendStatus(204); // return no message in body
      });
 });
 
@@ -127,7 +131,7 @@ app.delete("/api/remove/:id", (req, res, next) =>{
         res.status(400).json({"error":res.message})
         return;
       }
-      res.status(200).json({"deletedID":req.params.id})
+      res.sendStatus(204); // return no message in body
     });
 });
 
