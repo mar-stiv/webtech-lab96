@@ -2,43 +2,146 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <style media="screen">
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+      }
+    </style>
     <title>Self Evaluation Report</title>
   </head>
   <body>
     <h1>Self Evaluation Report</h1>
-    <h2>28.01.2022 - Lab 96: Maria Stivala and Rita Almenar</h2>
-    <hr id="intro">
+    <h3>30.01.2022 - Lab 96: Maria Stivala and Rita Martinez Almenar</h3>
+    <hr>
     <h2><strong>Introduction</strong></h2>
     <!---  shows insight in the limitations and impact of own work -->
-    <h3>Overview of Page<h3>
+    <p>A web pages accessibility is more than a checklist of technical specifications the developer must follow. It is a way to ensure that users will not be confused when entering your page. It is a way to make ensure users comfort. Without them it is very possible that users will simply leave the page without considering the information provided within.</p>
+    <p>But we also need to consider that no web page can be perfect. There are times where developers must sacrifice certaing aspects to better the end result. Knowing the target market will make the deciding job easier.</p>
+    <p>Being aware that we sell phones in our web page, we are aware of our target market. Such a website should be easily navigable, to ensure users comfort. we need to create a trusting base with our user, so that they'd want to buy from us again. We also need to approach with a trustworthy interface. To make sure that we achieved that we checked with the guidelines provided by the <a href="https://www.w3.org/TR/WCAG20/">WCAG</a>.</p>
+
     <h2>Accessibility</h2>
-    <!---  a short discussion of what you identify to be the WCAG guidelines that are the most relevant to your page (pick 2 or 3) -->
     <!--- bonus: discuss relevant level 'AA' and/or 'AAA' guidelines on https://support.marketing360.com/hc/en-us/articles/360010951740-Understanding-the-WCAG-A-AA-and-AAA-Accessibility-Grades -->
-    <!--- Assess whether your page meets the requirements for success criteria level A. For each guideline, briefly explain why your page complies or fails to comply to the given guideline. In case you think the guideline does not apply to your page, indicate why.-->
-    <h2>Usability</h2>
-    <!--- “Usability is a quality attribute that assesses how easy user interfaces are to use. The word ‘usability’ also refers to methods for improving ease-of-use during the design process.” by JAKOB NIELSON-->
-    <!--- inspo: https://web.wpi.edu/Pubs/E-project/Available/E-project-052710-070710/unrestricted/Usability_and_Usability_Testing_of_Websites.pdf + https://www.w3.org/WAI/fundamentals/accessibility-intro/-->
-    <hr id="impro">
+    <p>The most important guidelines for our web page are: 1.1, 1.3 and 2.4</p>
+    <p>1.1 Provide text alternatives: </p>
+    <ul>
+      <li>Our page must be percievable by everyone. As a web shop it is very important that everyone is able to percieve every element of the page, including images, so that they have the best experience possible buying phones from us. If they cannot see the media, there should always be a tag describing what exactly it is that they should be seeing. Our web shop relies on pictures of the phones, so the least a user should expect is some alternative to those pictures if they cannot see them.</li>
+    </ul>
+    <p>1.3 Content can be presented in different ways: </p>
+    <ul>
+      <li>As it is a web shop, the page should not soley rely on layout either. It needs to be a simple page that is usable with or without fancy CSS layout structures. The importance of our page is what we sell, not the way we portray said products. Therefore the focus should be a clear structured page, rather than an abnoxiously decorated one that steals the focus away from our information.</li>
+    </ul>
+    <p>2.4 Easy to Navigate: </p>
+    <ul>
+      <li>Our page must be easily operable by everyone. This means that it should be fully navigable. A user should always know where they are in our page and how to get where they want to go. The user should always have a good experience and not be confused by our pages structure. A bad navigability hinders the users want to buy from us. Insted on focusing on buying a good phone, they would be to confused and would probably choose a different site to buy from. </li>
+    </ul>
+    <hr>
     <h2><strong>Improvement Plan</strong></h2>
-    <!--- Clear prioritization, with a description of what the improvement would be, or how it can be realized-->
+    <p>For a better accessibility and usability of our web page we decided to implement the below listed improvements. They are listed in order of priority: </p>
+    <ol>
+      <li>To improve user experience for mobile users -> Improving our responsive design, eliminating all horizontal scrolling (making elements such as images smaller to fit into the screen)</li>
+      <li>To improve the page usability when printing -> Defining the print-style in the CSS-file (adding media type print and adding widows/orphans)</li>
+      <li>To improve page usability -> Passing both validator checks, fixing possible errors that we may have overlooked that made the page worse</li>
+      <li>To have a neat and clear structured HTML-file -> Eliminating all CSS oriented markup from our HTML-file (br tags, width and height tags from our images)</li>
+      <li>To have a complete page -> Implementing the missing items from the appendix (background, border-style, border-width, list-style-image, margin-bottom, orphans, widows)</li>
+      <li>To fulfill the assignments needs -> adding source code for ass2 js code</li>
+    </ol>
+
     <h3>Appendix A</h3>
-    <!--- Show you understand why your page meets (or does not meet) the requirements of each guideline (1.1, 1.3, 1.4, 2.1, 2.4). Max 5 points per requirement. -->
     <table>
       <tr>
+        <th></th>
         <th>Page Aspect</th>
         <th>Meets/Doesn't Meet</th>
       </tr>
+      <tr>
+        <td>1.1</td>
+        <td><strong>Text Alternatives: </strong>Provide text alternatives for any non-text content so that it can be changed into other forms people need, such as large print, braille, speech, symbols or simpler language.</td>
+        <td><strong>Meets: </strong>All images have alt tags that describe the picture/its putpose on the page. Non-text content that accepts user input also has a name that describes its purpose.</td>
+      </tr>
+      <tr>
+        <td>1.3</td>
+        <td><strong>Adaptable: </strong>Create content that can be presented in different ways (for example simpler layout) without losing information or structure.</td>
+        <td><strong>Meets: </strong>The page does not rely on layout, without the css it is still a usable page. (The images appear too big, but the pageis still understandable)</td>
+      </tr>
+      <tr>
+        <td>1.4</td>
+        <td><strong>Distinguishable: </strong>Make it easier for users to see and hear content including separating foreground from background.</td>
+        <td><strong>Meets: </strong>No audio is played. Color is not used for conveying information. Background and foreground are easily differentiable.</td>
+      </tr>
+      <tr>
+        <td>2.1</td>
+        <td><strong>Keyboard Accessible: </strong>Make all functionality available from a keyboard.</td>
+        <td><strong>Meets: </strong>All functionality is available from a keyboard. There is no need for specific requirements. Focus can be moved to links, but it can be moved away with only the keyboard.</td>
+      </tr>
+      <tr>
+        <td>2.4</td>
+        <td><strong>Navigable: </strong>Provide ways to help users navigate, find content, and determine where they are.</td>
+        <td><strong>Meets: </strong>The page has good section titles. It is easy to navigate. If you want to skip blocks there is a good navigation system on top of the page. All links have a purpose and are easily detremined.</td>
+      </tr>
     </table>
+
     <h3>Appendix B</h3>
-    <!--- learning goals: feedback your received from your TAs on Assignment 1 and 2 -  a technical implementation detail that has no impact on the usability or accessibility of your page / a positive aspect of your submission that improves usability or accessibility /  a potentially negative aspect of your submission that could be used to improve the usability or accessibility of your page -->
-    <!--- Ass1: Html does not pass the validator check without errors. + Images have style-oriented markup: width and height. <br> is not supposed to be used to structure html. These properties belong to the CSS file. + background, border-style, border-width, list-style-image, margin-bottom, orphans and widows are missing. + The style for smaller screens is different compared to the larger screens, however there is still some horizontal scrolling. This could have been prevented by making some things smaller or removing some unnecessary parts (e.g images). + Error was reported by the CSS validator-->
-    <!--- Ass2: No source for the sorting code-->
     <table>
-      <!--- describe what you aim to improve, and what modifications in the HTML, CSS or JavaScript are required to realize the improvement-->
+      <tr>
+        <th></th>
+        <th>Feedback</th>
+        <th>Related to: </th>
+      </tr>
+      <tr>
+        <td rowspan="10">ass1 </td>
+        <td>Good responsive design. Works good on tablet screen size and phone too</td>
+        <td rowspan="3">positive aspect of your submission that improves usability/accessibility</td>
+      </tr>
+      <tr>
+        <td>The style for smaller screens is different compared to the larger screens</td>
+      </tr>
+      <tr>
+        <td>Correctly working form</td>
+      </tr>
+      <tr>
+        <td>Html does not pass the validator check without errors</td>
+        <td rowspan="5">technical implementation with no impact on usability/accessibility</td>
+      </tr>
+      <tr>
+        <td>CSS error was reported by the validator</td>
+      </tr>
+      <tr>
+        <td>Images have style-oriented markup</td>
+      </tr>
+      <tr>
+        <td>br tag is not supposed to be used to structure html</td>
+      <tr>
+        <td>background, border-style, border-width, list-style-image, margin-bottom</td>
+      </tr>
+      <tr>
+        <td>There is no print-style defined in the CSS-file + orphans and widows are missing</td>
+        <td rowspan="2">negative aspect that damage usability/accessibility</td>
+      </tr>
+      <tr>
+        <td>The style for smaller screens is different compared to the larger screens, however there is still some horizontal scrolling</td>
+      </tr>
+      <tr>
+        <td rowspan="2">ass2 </td>
+        <td>missing source for the sorting code</td>
+        <td>technical implementation with no impact on usability/accessibility</td>
+      </tr>
+      <tr>
+        <td>Everything else looks good!</td>
+        <td>positive aspect of your submission that improves usability/accessibility</td>
+      </tr>
     </table>
-    <hr id="imple">
+    <hr>
     <h2><strong>Implementation of Improvement Plan</strong></h2>
     <h3>The improved versions of assignment 1 and 2:</h3>
     <!--- If you find that you cannot implement one or more improvements, please indicate this in your improvement plan, along with the reason why -->
+    <p>We could implement almost all our planned improvements.</p>
+    <p>Our HTML document was able to pass the validator test, but it did give one warning that we deliberately chose to ignore.</p>
+    <p>The warning displayed is as follows: </p>
+    <ul>
+      <li>In our form (last row of our table) there are 6 columns displayed, instead of the 5 that are supposed to appear.</li>
+    </ul>
+    <p>We chose to ignore the warning because we don't deem it as anything important nor relevant to the page structure/usability. The form should stay in one single line, and with the additionof the submit button it is indeeed one column more than what it should be, but it doen not hinder the usability/accesibility of the page.</p>
+    <p>The improved files are attached below.</p>
   </body>
 </html>
